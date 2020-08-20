@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import store from 'pokedex-rn-2/app/Store.js';
 import NavigationService from 'pokedex-rn-2/app/services/NavigationService.js';
-import 'pokedex-rn-2/config/ReactotronConfig'
+import 'pokedex-rn-2/config/ReactotronConfig';
 
 import AppNavigator from './app/Router';
 
@@ -12,8 +12,8 @@ export default class App extends Component {
 		return (
 			<Provider store={store}>
 				<View style={styles.container}>
-					<AppNavigator ref={
-						navigatorRef => {
+					<AppNavigator
+						ref={(navigatorRef) => {
 							NavigationService.setTopLevelNavigator(navigatorRef);
 						}}
 					/>
