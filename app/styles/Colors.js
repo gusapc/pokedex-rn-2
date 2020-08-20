@@ -30,6 +30,7 @@ const colors = {
 	red: '#EB3F3F',
 	transparent: 'rgba(0,0,0,0)',
 	gray: '#ccc',
+	shadow: '#091B27',
 };
 
-export default colors
+export default colors;

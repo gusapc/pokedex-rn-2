@@ -19,7 +19,7 @@ import { AuthLoadingContainer } from 'pokedex-rn-2/app/containers';
 
 const AppBottomTab = createBottomTabNavigator({ HomeScreen, TrainersScreen, ProfileScreen });
 const MainNavigation = createStackNavigator({ AppBottomTab, PokemonDetailsScreen });
-const AuthNavigation = createStackNavigator({ WelcomeScreen, LoginScreen, SiginScreen });
+const AuthNavigation = createStackNavigator({ WelcomeScreen, LoginScreen, SiginScreen }, { headerMode: 'none' });
 const AppNavigation = createSwitchNavigator(
 	{ AuthLoadingScreen, App: MainNavigation, Auth: AuthNavigation },
 	{ initialRouteName: 'AuthLoadingScreen' },
