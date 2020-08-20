@@ -11,7 +11,9 @@ import ENV from 'pokedex-rn-2/config/ENV.js';
 export default function AuthLoadingScreen(props) {
 	useEffect(() => {
 		if (firebase.apps.length === 0) firebase.initializeApp(ENV.config.firebase);
-		firebase.auth().onAuthStateChanged((currentUser) => props.navigation.navigate(currentUser ? 'App' : 'Auth'));
+		firebase.auth().onAuthStateChanged((currentUser) => {
+			props.navigation.navigate(currentUser ? 'App' : 'Auth');
+		});
 	}, []);
 
 	return (

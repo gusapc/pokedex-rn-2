@@ -1,6 +1,5 @@
 import React /*{useEffect, useState}*/ from 'react';
 import { View, ImageBackground, Image, TouchableOpacity } from 'react-native';
-
 import styles from './WelcomeScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
 import BankayaIcon from 'pokedex-rn-2/assets/BankayaIcon.png';

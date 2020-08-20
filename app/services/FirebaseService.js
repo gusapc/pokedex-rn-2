@@ -8,6 +8,7 @@ const getStore = () => {
 };
 export default {
 	currentUser: () => firebase.auth().currentUser,
-	authenticateWithEmail: (email, password) => firebase.auth().signInWithEmailAndPassword(email, password),
+	authenticateWithEmail: (email, pass) => firebase.auth().signInWithEmailAndPassword(email, pass),
+	createdUserByEmail: (email, pass) => firebase.auth().createUserWithEmailAndPassword(email, pass),
 	signOut: () => firebase.auth().signOut(),
 };
