@@ -1,27 +1,24 @@
 import { StyleSheet } from 'react-native';
-import {
-	// Fonts,
-	Colors,
-	// Metrics
-} from 'pokedex-rn-2/app/styles';
+// import { Fonts, Colors, Metrics } from 'pokedex-rn-2/app/styles';
 import { ApplicationStyles } from 'pokedex-rn-2/app/styles';
 
 export default StyleSheet.create({
 	...ApplicationStyles.screen,
-	...ApplicationStyles.flexBox,
+	// ...ApplicationStyles.flexBox,
 	...ApplicationStyles.margins,
-	opacityBg: {
-		zIndex: 1,
+	wrapper: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		backgroundColor: 'rgba(255, 255, 255, 0.2)',
+		borderRadius: 5,
+		paddingEnd: 30,
 		width: '100%',
-		height: '100%',
-		backgroundColor: Colors.shadow,
-		opacity: 0.75,
 	},
 	input: {
 		padding: 11,
 		width: '100%',
 		borderWidth: 0,
-		color: '#ffffff',
+		color: '#000000',
 		width: '100%',
 	},
 });
