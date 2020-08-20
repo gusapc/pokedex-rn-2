@@ -4,7 +4,7 @@ import { View, ImageBackground, Image } from 'react-native';
 import styles from './WelcomeScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
 import BankayaIcon from 'pokedex-rn-2/assets/BankayaIcon.png';
-import { TextComponent } from 'pokedex-rn-2/app/components';
+import { TextComponent, PrimaryBtn } from 'pokedex-rn-2/app/components';
 
 export default function WelcomeScreen(props) {
 	console.log(styles.justifyContentSpaceBetween);
@@ -19,13 +19,26 @@ export default function WelcomeScreen(props) {
 						<TextComponent color="white" text="Prueba técnica" />
 					</View>
 				</View>
-				<View style={{ height: 100, width: 100 }}></View>
+				<View style={[styles.baseVerticalMargin]}>
+					<View style={[styles.smallVerticalMargin]}>
+						<PrimaryBtn
+							colorText="white"
+							bgColor="transparent"
+							onPress={() => props.navigation.navigate('SiginScreen')}
+							text={'Registrarse'}
+						/>
+					</View>
+					<View style={[styles.smallVerticalMargin]}>
+						<PrimaryBtn
+							bgColor="blue"
+							onPress={() => props.navigation.navigate('LoginScreen')}
+							text={'Iniciar sesión'}
+							colorText="white"
+							borderColor="blue"
+						/>
+					</View>
+				</View>
 			</View>
 		</ImageBackground>
 	);
 }
-
-/*
-<Button title="Go to LoginScreen" onPress={() => props.navigation.navigate('LoginScreen')} />
-<Button title="Go to SiginScreen" onPress={() => props.navigation.navigate('SiginScreen')} />
-*/
