@@ -12,6 +12,7 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import AppNavigator from './app/Router';
 import * as Font from 'expo-font';
+import 'pokedex-rn-2/config/fixtimerbug';
 
 function cacheFonts(fonts) {
 	return fonts.map((font) => Font.loadAsync(font));
