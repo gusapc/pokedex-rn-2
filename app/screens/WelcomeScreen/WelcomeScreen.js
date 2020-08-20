@@ -7,7 +7,6 @@ import BankayaIcon from 'pokedex-rn-2/assets/BankayaIcon.png';
 import { TextComponent, PrimaryBtn } from 'pokedex-rn-2/app/components';
 
 export default function WelcomeScreen(props) {
-	console.log(styles.justifyContentSpaceBetween);
 	return (
 		<ImageBackground source={mainBg} style={[styles.fullWidth, styles.fullHeigth]}>
 			<View style={[styles.absolute, styles.opacityBg, { zIndex: 0 }]} />

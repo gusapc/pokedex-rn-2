@@ -2,10 +2,9 @@ import React from 'react';
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
 
 import {
-	ExampleScreen,
 	LoginScreen,
 	SiginScreen,
 	WelcomeScreen,
@@ -18,7 +17,20 @@ import {
 
 const AppBottomTab = createBottomTabNavigator({ HomeScreen, TrainersScreen, ProfileScreen });
 const MainNavigation = createStackNavigator({ AppBottomTab, PokemonDetailsScreen });
-const AuthNavigation = createStackNavigator({ WelcomeScreen, LoginScreen, SiginScreen }, { headerMode: 'none' });
+
+const AuthNavigation = createStackNavigator(
+	{
+		WelcomeScreen,
+		LoginScreen,
+		SiginScreen,
+	},
+	{
+		headerMode: 'none',
+		defaultNavigationOptions: {
+			...TransitionPresets.FadeFromBottomAndroid,
+		},
+	},
+);
 const AppNavigation = createSwitchNavigator(
 	{ AuthLoadingScreen, App: MainNavigation, Auth: AuthNavigation },
 	{ initialRouteName: 'AuthLoadingScreen' },
