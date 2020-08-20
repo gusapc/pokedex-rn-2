@@ -67,6 +67,20 @@ const ApplicationStyles = {
 			height: 64,
 			//height 64 + 16margin
 		},
+		opacityBg: {
+			zIndex: 1,
+			width: '100%',
+			height: '100%',
+			backgroundColor: Colors.shadow,
+			opacity: 0.75,
+		},
+		input: {
+			padding: 11,
+			width: '100%',
+			borderWidth: 0,
+			color: '#ffffff',
+			width: '100%',
+		},
 	},
 	margins: {
 		tinyVerticalMargin: {
@@ -80,6 +94,9 @@ const ApplicationStyles = {
 		},
 		baseVerticalMargin: {
 			marginVertical: Metrics.baseMargin,
+		},
+		doubleVerticalMargin: {
+			marginVertical: Metrics.doubleBaseMargin,
 		},
 		smallHorizontalMargin: {
 			marginHorizontal: Metrics.smallMargin,

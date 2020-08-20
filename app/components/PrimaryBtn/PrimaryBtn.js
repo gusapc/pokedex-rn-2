@@ -16,6 +16,7 @@ export default function PrimaryBtn(props) {
 					backgroundColor: Colors[props.bgColor ?? 'white'],
 					borderColor: Colors[props.borderColor ?? 'white'],
 					borderWidth: 1,
+					opacity: props.disabled ? 0.5 : 1,
 				},
 			]}
 			activeOpacity={0.6}

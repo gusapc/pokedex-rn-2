@@ -1,5 +1,5 @@
 import React /*{useEffect, useState}*/ from 'react';
-import { View, ImageBackground, Image } from 'react-native';
+import { View, ImageBackground, Image, TouchableOpacity } from 'react-native';
 
 import styles from './WelcomeScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
@@ -11,7 +11,7 @@ export default function WelcomeScreen(props) {
 		<ImageBackground source={mainBg} style={[styles.fullWidth, styles.fullHeigth]}>
 			<View style={[styles.absolute, styles.opacityBg, { zIndex: 0 }]} />
 			<View style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween]}>
-				<View style={[styles.row, styles.baseVerticalMargin, styles.basePadding]}>
+				<View style={[styles.row, styles.doubleVerticalMargin, styles.basePadding]}>
 					<Image source={BankayaIcon} style={{ height: 50, width: 50 }} />
 					<View style={(styles.flex1, styles.justifyContentCenter, styles.smallLeftMargin)}>
 						<TextComponent weight="bold" size="huge" color="white" text="Bankaya Pokedex" />
@@ -27,7 +27,7 @@ export default function WelcomeScreen(props) {
 							text={'Registrarse'}
 						/>
 					</View>
-					<View style={[styles.smallVerticalMargin]}>
+					<View style={[styles.baseVerticalMargin]}>
 						<PrimaryBtn
 							bgColor="blue"
 							onPress={() => props.navigation.navigate('LoginScreen')}
@@ -36,6 +36,12 @@ export default function WelcomeScreen(props) {
 							borderColor="blue"
 						/>
 					</View>
+					<TouchableOpacity
+						styles={styles.doubleVerticalMargin}
+						onPress={() => props.navigation.navigate('App')}
+					>
+						<TextComponent align="center" text="Entrar" color="white" />
+					</TouchableOpacity>
 				</View>
 			</View>
 		</ImageBackground>
