@@ -1,6 +1,6 @@
-import Fonts from './Fonts'
-import Colors from './Colors'
-import Metrics from './Metrics'
+import Fonts from './Fonts';
+import Colors from './Colors';
+import Metrics from './Metrics';
 import { StatusBar, Platform } from 'react-native';
 
 // This file is for a reusable grouping of Theme items.
@@ -9,20 +9,20 @@ import { StatusBar, Platform } from 'react-native';
 const ApplicationStyles = {
 	screen: {
 		imageFill: {
-			position:'absolute', 
-			top: 0, 
-			bottom: 0, 
-			right: 0, 
-			left: 0, 
-			width:null, 
-			height:null		
+			position: 'absolute',
+			top: 0,
+			bottom: 0,
+			right: 0,
+			left: 0,
+			width: null,
+			height: null,
 		},
 		fill: {
 			width: '100%',
-			height: '100%'
+			height: '100%',
 		},
 		container: {
-			flex: 1
+			flex: 1,
 		},
 		card: {
 			marginVertical: Metrics.smallMargin,
@@ -36,191 +36,193 @@ const ApplicationStyles = {
 			borderRadius: 5,
 		},
 		absolute: {
-			position: 'absolute'
+			position: 'absolute',
 		},
 		setToBot: {
 			bottom: 0,
 			right: 0,
-			left: 0
+			left: 0,
 		},
 		behind: {
-			zIndex: -1
+			zIndex: -1,
 		},
 		headerImage: {
 			width: Metrics.screenWidth,
-			height: (Metrics.screenWidth * .46 ) 
+			height: Metrics.screenWidth * 0.46,
 		},
 		footerImage: {
 			width: Metrics.screenWidth,
-			height: (Metrics.screenWidth * .52 ) 
+			height: Metrics.screenWidth * 0.52,
 		},
 		customSpacer: {
-			marginTop: (Metrics.screenWidth * .46 ) - (Metrics.navBarHeight + 27),
+			marginTop: Metrics.screenWidth * 0.46 - (Metrics.navBarHeight + 27),
 		},
 		bottomView: {
-			position:'absolute',
+			position: 'absolute',
 			bottom: 0,
 			width: '100%',
-			zIndex: 9999
+			zIndex: 9999,
 		},
 		bottomViewHeight: {
-			height: 64
+			height: 64,
 			//height 64 + 16margin
-		}
+		},
 	},
 	margins: {
 		tinyVerticalMargin: {
-			marginVertical: Metrics.tinyMargin
+			marginVertical: Metrics.tinyMargin,
 		},
 		smallVerticalMargin: {
-			marginVertical: Metrics.smallMargin
+			marginVertical: Metrics.smallMargin,
 		},
 		baseVerticalMargin: {
-			marginVertical: Metrics.baseMargin
+			marginVertical: Metrics.baseMargin,
 		},
 		smallHorizontalMargin: {
-			marginHorizontal: Metrics.smallMargin
+			marginHorizontal: Metrics.smallMargin,
 		},
 		baseHorizontalMargin: {
-			marginHorizontal: Metrics.baseMargin
+			marginHorizontal: Metrics.baseMargin,
 		},
 		smallTopMargin: {
-			marginTop: Metrics.smallMargin
-		},	
+			marginTop: Metrics.smallMargin,
+		},
 		baseTopMargin: {
-			marginTop: Metrics.baseMargin
+			marginTop: Metrics.baseMargin,
 		},
 		tinyRightMargin: {
-			marginRight: Metrics.tinyMargin
+			marginRight: Metrics.tinyMargin,
 		},
 		smallRightMargin: {
-			marginRight: Metrics.smallMargin
+			marginRight: Metrics.smallMargin,
 		},
 		smallLeftMargin: {
-			marginLeft: Metrics.smallMargin
-		},		
+			marginLeft: Metrics.smallMargin,
+		},
 		baseLeftMargin: {
-			marginLeft: Metrics.baseMargin
+			marginLeft: Metrics.baseMargin,
 		},
 		smallBottomMargin: {
-			marginBottom: Metrics.smallMargin
+			marginBottom: Metrics.smallMargin,
 		},
 		baseBottomMargin: {
-			marginBottom: Metrics.baseMargin
+			marginBottom: Metrics.baseMargin,
 		},
 		statusBarSpace: {
-			paddingTop: (Platform.OS != 'ios') ? StatusBar.currentHeight : 0
+			paddingTop: Platform.OS != 'ios' ? StatusBar.currentHeight : 0,
 		},
 		navBarHeight: {
 			height: Metrics.navBarHeight,
 		},
 		tinyVerticalPadding: {
-			paddingVertical: Metrics.tinyMargin
-		},		
+			paddingVertical: Metrics.tinyMargin,
+		},
 		smallVerticalPadding: {
-			paddingVertical: Metrics.smallMargin
+			paddingVertical: Metrics.smallMargin,
 		},
 		baseVerticalPadding: {
-			paddingVertical: Metrics.baseMargin
+			paddingVertical: Metrics.baseMargin,
 		},
 		smallHorizontalPadding: {
-			paddingHorizontal: Metrics.smallMargin
+			paddingHorizontal: Metrics.smallMargin,
 		},
 		baseHorizontalPadding: {
-			paddingHorizontal: Metrics.baseMargin
-		}
-
-	}, 
+			paddingHorizontal: Metrics.baseMargin,
+		},
+		basePadding: {
+			padding: Metrics.baseMargin,
+		},
+	},
 	flexBox: {
 		column: {
-			flexDirection: 'column'
+			flexDirection: 'column',
 		},
 		row: {
-			flexDirection: 'row'
+			flexDirection: 'row',
 		},
 		antirow: {
-			flexDirection: 'row-reverse'
+			flexDirection: 'row-reverse',
 		},
 		flex1: {
-			flex: 1
+			flex: 1,
 		},
 		flex2: {
-			flex:2
+			flex: 2,
 		},
 		flex: {
-			flex:3
+			flex: 3,
 		},
 		justifyContentFlexStart: {
-			justifyContent: 'flex-start'
+			justifyContent: 'flex-start',
 		},
 		justifyContentFlexEnd: {
-			justifyContent: 'flex-end'
+			justifyContent: 'flex-end',
 		},
 		justifyContentCenter: {
-			justifyContent: 'center'
+			justifyContent: 'center',
 		},
 		justifyContentSpaceBetween: {
-			justifyContent: 'space-between'
+			justifyContent: 'space-between',
 		},
-		justifyContentSpaceAround:{
-			justifyContent: 'space-around'
+		justifyContentSpaceAround: {
+			justifyContent: 'space-around',
 		},
-		justifyContentSpaceEvenly:{
-			justifyContent: 'space-evenly'
+		justifyContentSpaceEvenly: {
+			justifyContent: 'space-evenly',
 		},
 		alignItemFlexStart: {
-			alignItems: 'flex-start'
+			alignItems: 'flex-start',
 		},
 		alignItemsFlexEnd: {
-			alignItems: 'flex-end'
+			alignItems: 'flex-end',
 		},
 		alignItemsCenter: {
-			alignItems: 'center'
+			alignItems: 'center',
 		},
 		alignItemsStretch: {
-			alignItems: 'stretch'
+			alignItems: 'stretch',
 		},
 		centerObjects: {
 			justifyContent: 'center',
-			alignItems: 'center'
+			alignItems: 'center',
 		},
 		alignSelfCenter: {
-			alignSelf: 'center'
+			alignSelf: 'center',
 		},
 		alignSelfFlexStart: {
-			alignSelf: 'flex-start'
+			alignSelf: 'flex-start',
 		},
 		wrap: {
-			flexWrap: 'wrap'
+			flexWrap: 'wrap',
 		},
 		alignContentFlexStart: {
-			alignContent: 'flex-start'
+			alignContent: 'flex-start',
 		},
 		alignContentFlexEnd: {
-			alignContent: 'flex-end'
+			alignContent: 'flex-end',
 		},
 		alignContentCenter: {
-			alignContent: 'center'
+			alignContent: 'center',
 		},
 		alignContentSpaceBetween: {
-			alignContent: 'space-between'
+			alignContent: 'space-between',
 		},
 		alignContentSpaceAround: {
-			alignContent: 'space-around'
+			alignContent: 'space-around',
 		},
 		fullWidth: {
-			width: '100%'
+			width: '100%',
 		},
 		fullHeigth: {
-			height: '100%'
+			height: '100%',
 		},
 		deviceHeight: {
-			height: Metrics.screenHeight
-		}
+			height: Metrics.screenHeight,
+		},
 	},
 	stackNavigatorOptions: {
 		removeHeader: {
-			header: null
+			header: null,
 		},
 		transparentHeader: {
 			headerTransparent: true,
@@ -231,15 +233,15 @@ const ApplicationStyles = {
 				borderBottomWidth: 0,
 			},
 			gesturesEnabled: false,
-			headerTintColor: Colors.white
+			headerTintColor: Colors.white,
 		},
 		bottomTab: {
 			activeTintColor: Colors.blue,
 			inactiveTintColor: Colors.light,
 			style: {
-				backgroundColor: Colors.white
-			}
-		}
+				backgroundColor: Colors.white,
+			},
+		},
 	},
 	navigationOptions: {
 		headerTransparent: true,
@@ -250,7 +252,7 @@ const ApplicationStyles = {
 			borderBottomWidth: 0,
 		},
 		gesturesEnabled: false,
-	}
-} 
+	},
+};
 
-export default ApplicationStyles
+export default ApplicationStyles;
