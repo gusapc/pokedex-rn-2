@@ -95,7 +95,14 @@ export default function PokemonDetailsScreen(props) {
 											<Divider addVerticalMargin color="gray" />
 										</React.Fragment>
 									))}
-
+									{abilities.length === 0 && stats.length === 0 && types.length === 0 && (
+										<View style={styles.doubleVerticalMargin}>
+											<TextComponent
+												align="center"
+												text="Lo siento parece que no hay información."
+											/>
+										</View>
+									)}
 									{stats.length > 0 && (
 										<VictoryChart polar theme={VictoryTheme.material}>
 											{stats
