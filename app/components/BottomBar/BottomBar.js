@@ -13,6 +13,7 @@ export default function BottomBar(props) {
 	}, [props.navigation.state]);
 	return (
 		<SafeAreaView style={styles.bottomBar}>
+			<View style={styles.pokePoint} />
 			<View style={[styles.container, styles.row, styles.justifyContentSpaceEvenly, styles.baseBottomMargin]}>
 				<BottomBarIcons
 					onPress={() => nav.current.navigate('HomeScreen')}

@@ -13,4 +13,16 @@ export default StyleSheet.create({
 		borderTopColor: '#9CADC666',
 	},
 	bottomBar: { backgroundColor: Colors.redPokeball, borderTopWidth: 10, borderColor: 'black' },
+	pokePoint: {
+		height: 40,
+		width: 40,
+		borderRadius: 40,
+		borderWidth: 6,
+		backgroundColor: 'white',
+		borderColor: 'black',
+		position: 'absolute',
+		top: -25,
+		zIndex: 100,
+		left: Metrics.screenWidth / 2 - 20,
+	},
 });

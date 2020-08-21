@@ -16,13 +16,15 @@ const filtersName = [ 'Todos', 'Kanto','Johto', 'Hoenn','Sinnoh', 'Sinnoh2', 'Jo
 const filters = [ 'full', 'Kanto','Johto', 'Hoenn','Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova', 'Conquest', 'Kalos','Kalos2','Kalos3','Hoenn2','Alola',  ];
 
 export default function HomeScreen(props) {
-	const [tempfilter, setTempFilter] = useState('Alola');
-	const [filter, setFilter] = useState('Alola');
+	const [tempfilter, setTempFilter] = useState('full');
+	const [filter, setFilter] = useState('full');
 	const [isVisible, setIsVisible] = useState(false);
 
 	const renderItem = ({ item, index }) => (
 		<TouchableOpacity
-			onPress={() => props.navigation.navigate('PokemonDetailsScreen', item)}
+			onPress={() =>
+				props.navigation.navigate('PokemonDetailsScreen', { ...item, index: String(item.id ?? index + 1) })
+			}
 			style={[styles.baseHorizontalPadding, styles.smallVerticalPadding]}
 		>
 			<PokeItem index={String(item.id ?? index + 1)} name={item.name} />
