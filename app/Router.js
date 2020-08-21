@@ -14,8 +14,11 @@ import {
 	PokemonDetailsScreen,
 	AuthLoadingScreen,
 } from 'pokedex-rn-2/app/screens';
-
-const AppBottomTab = createBottomTabNavigator({ HomeScreen, TrainersScreen, ProfileScreen });
+import { BottomBar } from 'pokedex-rn-2/app/components';
+const AppBottomTab = createBottomTabNavigator(
+	{ HomeScreen, TrainersScreen, ProfileScreen },
+	{ tabBarComponent: BottomBar },
+);
 const MainNavigation = createStackNavigator({ AppBottomTab, PokemonDetailsScreen });
 
 const AuthNavigation = createStackNavigator(

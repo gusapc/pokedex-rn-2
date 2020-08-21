@@ -31,6 +31,7 @@ const colors = {
 	transparent: 'rgba(0,0,0,0)',
 	gray: '#ccc',
 	shadow: '#091B27',
+	redPokeball: '#FE0000',
 };
 
 export default colors;

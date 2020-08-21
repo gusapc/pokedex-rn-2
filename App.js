@@ -13,6 +13,7 @@ import { Asset } from 'expo-asset';
 import AppNavigator from './app/Router';
 import * as Font from 'expo-font';
 import 'pokedex-rn-2/config/fixtimerbug';
+import { ContextProvider } from 'pokedex-rn-2/app/Context.js';
 
 function cacheFonts(fonts) {
 	return fonts.map((font) => Font.loadAsync(font));
@@ -47,13 +48,15 @@ export default class App extends Component {
 		}
 		return (
 			<Provider store={store}>
-				<View style={styles.container}>
-					<AppNavigator
-						ref={(navigatorRef) => {
-							NavigationService.setTopLevelNavigator(navigatorRef);
-						}}
-					/>
-				</View>
+				<ContextProvider>
+					<View style={styles.container}>
+						<AppNavigator
+							ref={(navigatorRef) => {
+								NavigationService.setTopLevelNavigator(navigatorRef);
+							}}
+						/>
+					</View>
+				</ContextProvider>
 			</Provider>
 		);
 	}
