@@ -82,6 +82,11 @@ const ApplicationStyles = {
 			color: '#ffffff',
 			width: '100%',
 		},
+		floatingBtn: {
+			position: 'absolute',
+			bottom: Metrics.baseMargin * 2.5,
+			right: Metrics.baseMargin,
+		},
 	},
 	margins: {
 		tinyVerticalMargin: {
@@ -152,6 +157,9 @@ const ApplicationStyles = {
 		},
 		basePadding: {
 			padding: Metrics.baseMargin,
+		},
+		smallPadding: {
+			padding: Metrics.smallMargin,
 		},
 	},
 	flexBox: {

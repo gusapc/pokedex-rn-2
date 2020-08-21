@@ -30,20 +30,20 @@ export default function PokeItem(props) {
 			</View>
 			<View style={[styles.row, styles.centerObjects]}>
 				<TextComponent size="title" color="black" text={'#' + props.index} />
-				<Feather name={'chevron-right'} size={25} color="balck" />
+				<Feather name={'chevron-right'} size={25} color="black" />
 			</View>
 		</View>
 	);
 }
 
 PokeItem.propTypes = {
-	index: PropTypes.number,
+	index: PropTypes.string,
 	name: PropTypes.string,
 	url: PropTypes.string,
 };
 
 PokeItem.defaultProps = {
-	index: 0,
+	index: '0',
 	name: 'Unknown',
 	url: '',
 };

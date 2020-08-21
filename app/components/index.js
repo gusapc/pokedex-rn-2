@@ -7,3 +7,6 @@ export { default as BottomBarIcons } from './BottomBarIcons';
 export { default as BottomBar } from './BottomBar';
 export { default as PokeItem } from './PokeItem';
 export { default as Divider } from './Divider';
+export { default as ModalFilter } from './ModalFilter';
+export { default as FloatingButton } from './FloatingButton';
+export { default as SelectCircleTitle } from './SelectCircleTitle';

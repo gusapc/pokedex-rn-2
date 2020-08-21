@@ -6,7 +6,6 @@ export default function normalizeByKey(all = [], key) {
 		else {
 			byId[item[key]] = {
 				...item,
-				id: item[key],
 			};
 			allIds.push(item[key]);
 		}

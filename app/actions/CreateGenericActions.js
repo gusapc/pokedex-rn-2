@@ -1,5 +1,21 @@
 import ApiService from 'pokedex-rn-2/app/services/ApiService';
 import normalizeByKey from 'pokedex-rn-2/app/utils/NormalizeByKey';
+import normalizeById from 'pokedex-rn-2/app/utils/NormalizeById';
+
+export function fetchFullCreateGeneric(modelName, method, params) {
+	return async (dispatch) => {
+		dispatch(fetchCreateGenericBegin(modelName));
+		await ApiService[method](params)
+			.then((data) => {
+				const list = data.pokemon_entries.map((i) => ({ id: i.entry_number, ...i.pokemon_species }));
+				let normalized = normalizeById(list);
+				dispatch(fetchCreateGenericSuccess(modelName, normalized));
+			})
+			.catch((error) => {
+				dispatch(fetchCreateGenericFailure());
+			});
+	};
+}
 
 export function fetchCreateGeneric(modelName, method, params) {
 	return async (dispatch) => {

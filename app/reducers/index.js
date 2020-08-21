@@ -5,6 +5,7 @@ import CreateGenericReducer from 'pokedex-rn-2/app/reducers/CreateGenericReducer
 const rootReducer = combineReducers({
 	Example,
 	PokeList: CreateGenericReducer('POKE_LIST'),
+	Kanto: CreateGenericReducer('KANTO'),
 });
 
 export default rootReducer;
