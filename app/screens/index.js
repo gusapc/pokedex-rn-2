@@ -7,3 +7,4 @@ export { default as ProfileScreen } from './ProfileScreen';
 export { default as TrainersScreen } from './TrainersScreen';
 export { default as PokemonDetailsScreen } from './PokemonDetailsScreen';
 export { default as AuthLoadingScreen } from './AuthLoadingScreen';
+export { default as TrainerProfileScreen } from './TrainerProfileScreen';

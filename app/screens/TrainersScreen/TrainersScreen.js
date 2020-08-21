@@ -9,7 +9,10 @@ import gball from 'pokedex-rn-2/assets/gball.png';
 export default function TrainersScreen(props) {
 	let pokeSize = Metrics.screenWidth / 7;
 	const renderItem = ({ item }) => (
-		<TouchableOpacity style={[styles.baseHorizontalPadding, styles.smallVerticalPadding]}>
+		<TouchableOpacity
+			onPress={() => props.navigation.navigate('TrainerProfileScreen', item)}
+			style={[styles.baseHorizontalPadding, styles.smallVerticalPadding]}
+		>
 			<TextComponent size={'title'} text={item.displayName} color="darkest" weight="medium" align="left" />
 			<View style={[styles.row, styles.justifyContentSpaceBetween, styles.smallVerticalPadding]}>
 				{[0, 1, 2, 3, 4, 5].map((i, index) => (
@@ -68,7 +71,7 @@ export default function TrainersScreen(props) {
 							else return <React.Fragment />;
 						}}
 						refreshControl={<RefreshControl refreshing={isLoading} onRefresh={reload} />}
-						ItemSeparatorComponent={() => <Divider />}
+						ItemSeparatorComponent={() => <Divider addHorizontalMargin />}
 					/>
 				)}
 			</FireListContainer>

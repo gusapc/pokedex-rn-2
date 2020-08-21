@@ -16,9 +16,9 @@ export default function AuthLoadingScreen(props) {
 	useEffect(() => {
 		if (firebase.apps.length === 0) firebase.initializeApp(ENV.config.firebase);
 		firebase.auth().onAuthStateChanged((currentUser) => {
-			if (currentUser) {
+			if (!!currentUser) {
 				setIsSignedIn(!!currentUser);
-				if (currentUser.uid) teamLoader.fetch({ uid: currentUser.uid });
+				if (currentUser?.uid) teamLoader.fetch({ uid: currentUser.uid });
 				props.navigation.navigate('App');
 			} else props.navigation.navigate('Auth');
 		});

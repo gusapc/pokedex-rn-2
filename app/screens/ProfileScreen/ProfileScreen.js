@@ -5,7 +5,7 @@ import styles from './ProfileScreenStyle';
 import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
 
 export default function ProfileScreen(props) {
-	const signOut = async () => await FirebaseService.signOut();
+	const signOut = async () => FirebaseService.signOut();
 	return (
 		<View style={styles.container}>
 			<View style={{ height: 100, width: 100 }} />
