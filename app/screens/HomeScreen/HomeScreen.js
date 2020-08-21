@@ -65,7 +65,7 @@ export default function HomeScreen(props) {
 	);
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.containerWhite}>
 			{filter === 'full' ? (
 				<PokeListContainer>{(params) => renderList(params)}</PokeListContainer>
 			) : (

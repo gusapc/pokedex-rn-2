@@ -23,6 +23,9 @@ const ApplicationStyles = {
 		},
 		container: {
 			flex: 1,
+		},
+		containerWhite: {
+			flex: 1,
 			backgroundColor: Colors.white,
 		},
 		card: {
