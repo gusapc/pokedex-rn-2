@@ -6,6 +6,18 @@ import { fetchFullCreateGeneric } from 'pokedex-rn-2/app/actions/CreateGenericAc
 
 const regions = {
 	Kanto: '2',
+	Johto: '3',
+	Hoenn: '4',
+	Sinnoh: '5',
+	Sinnoh2: '6',
+	Johto2: '7',
+	Unova: '8',
+	Unova2: '9',
+	Conquest: '11',
+	Kalos: '12',
+	Kalos2: '13',
+	Hoenn2: '15',
+	Alola: '16',
 };
 
 export default function PokeonByRegionContainer({ children, modelName }) {
@@ -22,10 +34,10 @@ export default function PokeonByRegionContainer({ children, modelName }) {
 		);
 
 	useEffect(() => {
-		fetch();
+		list.length === 0 && fetch();
 	}, []);
 
-	return children({ isLoading, error, fetch, reload: fetch, list });
+	return children({ isLoading, error, fetch: () => {}, reload: fetch, list });
 }
 
 PokeonByRegionContainer.propTypes = {

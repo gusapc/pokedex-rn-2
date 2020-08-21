@@ -11,13 +11,13 @@ import {
 import { PokeListContainer, PokeonByRegionContainer } from 'pokedex-rn-2/app/containers';
 import styles from './HomeScreenStyle';
 // prettier-ignore
-const filtersName = [ 'Todos', 'Kanto', ];
+const filtersName = [ 'Todos', 'Kanto','Johto', 'Hoenn','Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova2', 'Conquest', 'Kalos','Kalos2','Kalos3','Hoenn2', 'Alola',  ];
 // prettier-ignore
-const filters = [ 'full', 'Kanto', ];
+const filters = [ 'full', 'Kanto','Johto', 'Hoenn','Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova', 'Conquest', 'Kalos','Kalos2','Kalos3','Hoenn2','Alola',  ];
 
 export default function HomeScreen(props) {
-	const [tempfilter, setTempFilter] = useState('full');
-	const [filter, setFilter] = useState('full');
+	const [tempfilter, setTempFilter] = useState('Alola');
+	const [filter, setFilter] = useState('Alola');
 	const [isVisible, setIsVisible] = useState(false);
 
 	const renderItem = ({ item, index }) => (
@@ -25,7 +25,7 @@ export default function HomeScreen(props) {
 			onPress={() => props.navigation.navigate('PokemonDetailsScreen', item)}
 			style={[styles.baseHorizontalPadding, styles.smallVerticalPadding]}
 		>
-			<PokeItem index={item.id ?? `${index + 1}`} name={item.name} />
+			<PokeItem index={String(item.id ?? index + 1)} name={item.name} />
 		</TouchableOpacity>
 	);
 
