@@ -32,9 +32,9 @@ export default function BottomBar(props) {
 					color="white"
 				/>
 				<BottomBarIcons
-					onPress={() => nav.current.navigate(isSignedIn ? 'ProfileScreen' : 'Auth')}
-					routeName="ProfileScreen"
-					isCurrentScreen={routeName === 'ProfileScreen'}
+					onPress={() => nav.current.navigate(isSignedIn ? 'ProfileNavigation' : 'Auth')}
+					routeName="ProfileNavigation"
+					isCurrentScreen={routeName === 'ProfileNavigation'}
 					name={'Perfil'}
 					iconName="user"
 					color="white"

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
 
 import {
@@ -9,15 +9,25 @@ import {
 	SiginScreen,
 	WelcomeScreen,
 	HomeScreen,
-	ProfileScreen,
 	TrainersScreen,
 	PokemonDetailsScreen,
 	AuthLoadingScreen,
 	TrainerProfileScreen,
+	AboutScreen,
+	TeamScreen,
 } from 'pokedex-rn-2/app/screens';
-import { BottomBar } from 'pokedex-rn-2/app/components';
+import { BottomBar, ProfileTab } from 'pokedex-rn-2/app/components';
+
+const ProfileNavigation = createMaterialTopTabNavigator(
+	{
+		TeamScreen,
+		AboutScreen,
+	},
+	{ tabBarComponent: ProfileTab, initialRouteName: 'TeamScreen', swipeEnabled: true },
+);
+
 const AppBottomTab = createBottomTabNavigator(
-	{ HomeScreen, TrainersScreen, ProfileScreen },
+	{ HomeScreen, TrainersScreen, ProfileNavigation },
 	{ tabBarComponent: BottomBar },
 );
 const MainNavigation = createStackNavigator(

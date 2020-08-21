@@ -30,7 +30,7 @@ export default function BottomBarIcons(props) {
 			setCurrentWidthText(Metrics.screenWidth / 6);
 			return currentWidthText + 35;
 		}
-		if (props.routeName === 'ProfileScreen') {
+		if (props.routeName === 'ProfileNavigation') {
 			setCurrentWidthText(Metrics.screenWidth / 6);
 			return currentWidthText + 39;
 		}
