@@ -10,7 +10,7 @@ export default function FloatingButton(props) {
 	return (
 		<TouchableOpacity
 			onPress={props.onPress}
-			style={[backgroundColor, styles.btn, styles.smallPadding]}
+			style={[backgroundColor, styles.btn, styles.smallPadding, styles.border]}
 			activeOpacity={0.8}
 			disabled={props.disabled}
 		>

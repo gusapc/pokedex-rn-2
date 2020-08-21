@@ -13,4 +13,8 @@ export default StyleSheet.create({
 		height: Metrics.circleIcons.huge,
 		borderRadius: Platform.OS === 'ios' ? Metrics.circleIcons.huge / 2 : Metrics.circleIcons.huge,
 	},
+	border: {
+		borderWidth: 2,
+		borderColor: 'black',
+	},
 });
