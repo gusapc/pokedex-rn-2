@@ -27,6 +27,11 @@ export default {
 		return this.makeRequest({ url, method });
 	},
 
+	getPokemonByUrl(url) {
+		const method = 'GET';
+		return this.makeRequest({ url, method });
+	},
+
 	makeQueryParams(params) {
 		let queries = '';
 		for (var key in params) {

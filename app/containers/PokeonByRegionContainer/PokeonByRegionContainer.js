@@ -35,7 +35,7 @@ export default function PokeonByRegionContainer({ children, modelName }) {
 
 	useEffect(() => {
 		list.length === 0 && fetch();
-	}, []);
+	}, [modelName]);
 
 	return children({ isLoading, error, fetch: () => {}, reload: fetch, list });
 }

@@ -8,7 +8,7 @@ import { Colors } from 'pokedex-rn-2/app/styles';
 
 export default function StatsItem(props) {
 	return (
-		<View style={[styles.row, styles.flex1]}>
+		<View style={[styles.row, styles.flex1, styles.alignItemsCenter]}>
 			<View style={{ flex: 0.2 }}>
 				<Feather name={props.iconName} size={25} color={Colors[props.color] ?? 'black'} />
 			</View>
@@ -16,7 +16,7 @@ export default function StatsItem(props) {
 				<TextComponent color={Colors[props.color] ?? 'black'} text={props.title} />
 			</View>
 			<View style={{ flex: 0.4 }}>
-				<TextComponent color={Colors[props.color] ?? 'black'} text={props.content} />
+				<TextComponent color={Colors[props.color] ?? 'black'} align="right" text={props.content} />
 			</View>
 		</View>
 	);
@@ -32,6 +32,6 @@ StatsItem.propTypes = {
 StatsItem.defaultProps = {
 	iconName: 'feather',
 	title: '',
-	content: '- - - - - - -',
+	content: '- - -',
 	color: 'black',
 };

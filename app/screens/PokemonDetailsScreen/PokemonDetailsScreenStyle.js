@@ -7,4 +7,5 @@ export default StyleSheet.create({
 	...ApplicationStyles.flexBox,
 	...ApplicationStyles.margins,
 	img: { width: 250, height: 250 },
+	activityIndicatorContainer: { width: '100%', height: 100 },
 });

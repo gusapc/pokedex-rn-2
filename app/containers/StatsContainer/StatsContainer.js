@@ -1,26 +1,33 @@
-import React, { 
-	// useEffect, 
-	// useState 
-} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import ApiService from 'pokedex-rn-2/app/services/ApiService';
+import Reactotron from 'reactotron-react-native';
 
-export default function StatsContainer (props) {
-	return (
-		<View>
-			<Text>StatsContainer</Text>
-		</View>
-	);
+export default function StatsContainer({ url, children }) {
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState('');
+	const [data, setData] = useState({ abilities: [], stats: [], types: [] });
+
+	const fetch = async () => {
+		setIsLoading(true);
+		await ApiService.getPokemonByUrl(url)
+			.then((result) => {
+				let { abilities, stats, types } = result;
+				setData({ abilities, stats, types });
+				setIsLoading(false);
+			})
+			.catch((error) => setError(error));
+	};
+
+	useEffect(() => {
+		fetch();
+	}, []);
+
+	return children({ isLoading, error, ...data });
 }
-
 
 StatsContainer.propTypes = {
-	// data: PropTypes.array
-}
+	url: PropTypes.string.isRequired,
+};
 
-StatsContainer.defaultProps = {
-	// data: []
-}
-
-
+StatsContainer.defaultProps = {};

@@ -6,7 +6,16 @@ import styles from './DividerStyle';
 import { Colors } from 'pokedex-rn-2/app/styles';
 
 export default function Divider(props) {
-	return <View style={[styles.divider, { backgroundColor: Colors[props.color] }]} />;
+	return (
+		<View
+			style={[
+				styles.divider,
+				props.addVerticalMargin && styles.smallVerticalMargin,
+				props.addHorizontalMargin && styles.baseHorizontalMargin,
+				{ backgroundColor: Colors[props.color] },
+			]}
+		/>
+	);
 }
 
 Divider.propTypes = {
