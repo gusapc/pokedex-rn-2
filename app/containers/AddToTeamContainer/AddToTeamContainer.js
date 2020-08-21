@@ -16,9 +16,10 @@ export default function AddToTeamContainer(props) {
 	const setNewPokemon = async (index) => {
 		let newTeam = infoTeam.data.team ? infoTeam.data.team.map((i) => i) : [];
 		newTeam[index] = { ...props };
-		let { uid } = FirebaseService.currentUser();
+		let { uid, displayName, photoURL } = FirebaseService.currentUser();
+
 		await FirebaseService.currentUserTeam({ uid })
-			.set({ team: newTeam })
+			.set({ team: newTeam, displayName, photoURL })
 			.then((r) => {
 				infoTeamLoader.fetch({ uid });
 				Alert.alert('Exlente', `Ahora tiene un ${props.name}`, [{ text: 'OK', onPress: () => {} }], {

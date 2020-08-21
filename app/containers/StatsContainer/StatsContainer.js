@@ -13,7 +13,7 @@ export default function StatsContainer({ url, children }) {
 		await ApiService.getPokemonByUrl(url)
 			.then((result) => {
 				let { abilities, stats, types } = result;
-				setData({ abilities, stats, types });
+				setData({ abilities: abilities ?? [], stats: stats ?? [], types: types ?? [] });
 				setIsLoading(false);
 			})
 			.catch((error) => setError(error));
@@ -22,7 +22,6 @@ export default function StatsContainer({ url, children }) {
 	useEffect(() => {
 		fetch();
 	}, []);
-
 	return children({ isLoading, error, ...data });
 }
 

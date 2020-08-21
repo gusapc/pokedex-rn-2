@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { ApplicationStyles } from 'pokedex-rn-2/app/styles';
 
 export default StyleSheet.create({
-	 ...ApplicationStyles.screen,
-	// ...ApplicationStyles.flexBox,
-	// ...ApplicationStyles.margins,
+	...ApplicationStyles.screen,
+	...ApplicationStyles.flexBox,
+	...ApplicationStyles.margins,
 });

@@ -13,4 +13,10 @@ export default {
 	signOut: () => firebase.auth().signOut(),
 	currentUserTeam: ({ uid }) => getStore().collection('teams').doc(uid),
 	fetchCurrentUserTeam: ({ uid }) => getStore().collection('teams').doc(uid).get(),
+	fetchTeams({ lastVisible }) {
+		let ref = getStore().collection('teams');
+		if (lastVisible) ref = ref.startAfter(lastVisible);
+		ref = ref.limit(20).get();
+		return ref;
+	},
 };

@@ -48,28 +48,26 @@ export default function HomeScreen(props) {
 				else return <React.Fragment />;
 			}}
 			ListFooterComponent={() => <View style={{ height: 100 }} />}
-			ListHeaderComponent={() => (
-				<HeaderNavbar
-					left={<React.Fragment />}
-					right={<React.Fragment />}
-					center={
-						<View>
-							<TextComponent color={'black'} weight={'bold'} size="huge" align="center" text="Pokedex" />
-							<TextComponent
-								color={'black'}
-								weight={'bold'}
-								align="center"
-								text={filter === 'full' ? 'Nacional' : filter}
-							/>
-						</View>
-					}
-				/>
-			)}
 		/>
 	);
 
 	return (
 		<View style={styles.containerWhite}>
+			<HeaderNavbar
+				left={<React.Fragment />}
+				right={<React.Fragment />}
+				center={
+					<View>
+						<TextComponent color={'black'} weight={'bold'} size="huge" align="center" text="Pokedex" />
+						<TextComponent
+							color={'black'}
+							weight={'bold'}
+							align="center"
+							text={filter === 'full' ? 'Nacional' : filter}
+						/>
+					</View>
+				}
+			/>
 			{filter === 'full' ? (
 				<PokeListContainer>{(params) => renderList(params)}</PokeListContainer>
 			) : (
