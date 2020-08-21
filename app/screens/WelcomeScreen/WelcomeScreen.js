@@ -1,5 +1,5 @@
 import React /*{useEffect, useState}*/ from 'react';
-import { View, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from './WelcomeScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
 import BankayaIcon from 'pokedex-rn-2/assets/BankayaIcon.png';
@@ -9,11 +9,11 @@ export default function WelcomeScreen(props) {
 	return (
 		<ImageBackground source={mainBg} style={[styles.fullWidth, styles.fullHeigth]}>
 			<View style={[styles.absolute, styles.opacityBg, { zIndex: 0 }]} />
-			<View style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween]}>
+			<SafeAreaView style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween]}>
 				<View>
 					<View
 						style={[
-							styles.smallVerticalMargin,
+							styles.baseVerticalMargin,
 							styles.basePadding,
 							styles.row,
 							styles.justifyContentSpaceBetween,
@@ -53,7 +53,7 @@ export default function WelcomeScreen(props) {
 						/>
 					</View>
 				</View>
-			</View>
+			</SafeAreaView>
 		</ImageBackground>
 	);
 }

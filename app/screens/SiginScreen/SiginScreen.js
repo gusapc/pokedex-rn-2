@@ -6,6 +6,7 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView,
 	Alert,
+	SafeAreaView,
 	Keyboard,
 	TouchableWithoutFeedback,
 } from 'react-native';
@@ -55,78 +56,90 @@ export default function SiginScreen(props) {
 	return (
 		<ImageBackground source={mainBg} style={[styles.fullWidth, styles.fullHeigth]}>
 			<View style={[styles.absolute, styles.opacityBg, { zIndex: 0 }]} />
-			<TouchableWithoutFeedback onPressOut={() => Keyboard.dismiss()}>
-				<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-					<View
-						style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween, styles.baseMargin]}
-					>
-						<HeaderNavbar
-							left={
-								<Feather
-									onPress={() => props.navigation.navigate('WelcomeScreen')}
-									name={'chevron-left'}
-									size={35}
-									color="white"
-								/>
-							}
-							right={
-								<TouchableOpacity onPress={() => props.navigation.navigate('LoginScreen')}>
-									<TextComponent text="Iniciar sesión" color="white" />
-								</TouchableOpacity>
-							}
-						/>
-						<View />
-						<View style={styles.baseHorizontalMargin}>
-							<View style={styles.smallVerticalMargin}>
-								<TextComponent align="center" text="Completa tus datos" size="title" color="white" />
-							</View>
-							<View style={styles.smallVerticalMargin}>
-								<InputIcon>
-									<TextInput
-										ref={inputEmail}
-										value={email}
-										placeholder={'Email'}
-										onChangeText={(text) => setEmail(text)}
-										returnKeyType="next"
-										underlineColorAndroid={'rgba(0, 0, 0, 0)'}
-										style={styles.input}
-										editable={!isLoading}
-										blurOnSubmit={true}
-										placeholderTextColor="#fff"
-										onSubmitEditing={() => inputPass.current.focus()}
+			<SafeAreaView>
+				<TouchableWithoutFeedback onPressOut={() => Keyboard.dismiss()}>
+					<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+						<View
+							style={[
+								styles.container,
+								styles.flex1,
+								styles.justifyContentSpaceBetween,
+								styles.baseMargin,
+							]}
+						>
+							<HeaderNavbar
+								left={
+									<Feather
+										onPress={() => props.navigation.navigate('WelcomeScreen')}
+										name={'chevron-left'}
+										size={35}
+										color="white"
 									/>
-								</InputIcon>
-							</View>
-							<View style={styles.smallVerticalMargin}>
-								<InputIcon iconName={'lock'}>
-									<TextInput
-										ref={inputPass}
-										value={pass}
-										placeholder={'Contraseña'}
-										onChangeText={(text) => setPass(text)}
-										returnKeyType="next"
-										underlineColorAndroid={'rgba(0, 0, 0, 0)'}
-										style={styles.input}
-										editable={!isLoading}
-										secureTextEntry
-										blurOnSubmit={true}
-										placeholderTextColor="#fff"
-										onSubmitEditing={sigin}
+								}
+								right={
+									<TouchableOpacity onPress={() => props.navigation.navigate('LoginScreen')}>
+										<TextComponent text="Iniciar sesión" color="white" />
+									</TouchableOpacity>
+								}
+							/>
+							<View />
+							<View style={styles.baseHorizontalMargin}>
+								<View style={styles.smallVerticalMargin}>
+									<TextComponent
+										align="center"
+										text="Completa tus datos"
+										size="title"
+										color="white"
 									/>
-								</InputIcon>
+								</View>
+								<View style={styles.smallVerticalMargin}>
+									<InputIcon>
+										<TextInput
+											ref={inputEmail}
+											value={email}
+											placeholder={'Email'}
+											onChangeText={(text) => setEmail(text)}
+											returnKeyType="next"
+											underlineColorAndroid={'rgba(0, 0, 0, 0)'}
+											style={styles.input}
+											editable={!isLoading}
+											blurOnSubmit={true}
+											placeholderTextColor="#fff"
+											onSubmitEditing={() => inputPass.current.focus()}
+										/>
+									</InputIcon>
+								</View>
+								<View style={styles.smallVerticalMargin}>
+									<InputIcon iconName={'lock'}>
+										<TextInput
+											ref={inputPass}
+											value={pass}
+											placeholder={'Contraseña'}
+											onChangeText={(text) => setPass(text)}
+											returnKeyType="next"
+											underlineColorAndroid={'rgba(0, 0, 0, 0)'}
+											style={styles.input}
+											editable={!isLoading}
+											secureTextEntry
+											blurOnSubmit={true}
+											placeholderTextColor="#fff"
+											onSubmitEditing={sigin}
+										/>
+									</InputIcon>
+								</View>
 							</View>
+							<View />
+							<PrimaryBtn
+								disabled={!(email.length > 0 && pass.length > 0)}
+								bgColor="white"
+								onPress={sigin}
+								text={isLoading ? 'Registrando...' : 'Registrarse'}
+								colorText="blue"
+							/>
 						</View>
-						<View />
-						<PrimaryBtn
-							disabled={!(email.length > 0 && pass.length > 0)}
-							bgColor="white"
-							onPress={sigin}
-							text={isLoading ? 'Registrando...' : 'Registrarse'}
-							colorText="blue"
-						/>
-					</View>
-				</KeyboardAvoidingView>
-			</TouchableWithoutFeedback>
+					</KeyboardAvoidingView>
+				</TouchableWithoutFeedback>
+			</SafeAreaView>
 		</ImageBackground>
 	);
 }
