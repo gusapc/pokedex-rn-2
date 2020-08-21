@@ -58,14 +58,19 @@ export default function SiginScreen(props) {
 			<TouchableWithoutFeedback onPressOut={() => Keyboard.dismiss()}>
 				<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
 					<View
-						style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween, styles.baseMargin]}
+						style={[
+							styles.containerWhite,
+							styles.flex1,
+							styles.justifyContentSpaceBetween,
+							styles.baseMargin,
+						]}
 					>
 						<HeaderNavbar
 							left={
 								<Feather
 									onPress={() => props.navigation.navigate('WelcomeScreen')}
 									name={'chevron-left'}
-									size={25}
+									size={35}
 									color="white"
 								/>
 							}

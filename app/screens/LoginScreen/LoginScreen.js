@@ -56,7 +56,7 @@ export default function LoginScreen(props) {
 								<Feather
 									onPress={() => props.navigation.navigate('WelcomeScreen')}
 									name={'chevron-left'}
-									size={25}
+									size={35}
 									color="white"
 								/>
 							}

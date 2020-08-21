@@ -19,17 +19,19 @@ export default function HomeScreen(props) {
 	const [tempfilter, setTempFilter] = useState('full');
 	const [filter, setFilter] = useState('full');
 	const [isVisible, setIsVisible] = useState(false);
-
-	const renderItem = ({ item, index }) => (
-		<TouchableOpacity
-			onPress={() =>
-				props.navigation.navigate('PokemonDetailsScreen', { ...item, index: String(item.id ?? index + 1) })
-			}
-			style={[styles.baseHorizontalPadding, styles.smallVerticalPadding]}
-		>
-			<PokeItem index={String(item.id ?? index + 1)} name={item.name} />
-		</TouchableOpacity>
-	);
+	const renderItem = ({ item, index }) => {
+		item.name = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+		return (
+			<TouchableOpacity
+				onPress={() =>
+					props.navigation.navigate('PokemonDetailsScreen', { ...item, index: String(item.id ?? index + 1) })
+				}
+				style={[styles.baseHorizontalPadding, styles.smallVerticalPadding]}
+			>
+				<PokeItem index={String(item.id ?? index + 1)} name={item.name} />
+			</TouchableOpacity>
+		);
+	};
 
 	const renderList = ({ isLoading, error, fetch, reload, list }) => (
 		<FlatList

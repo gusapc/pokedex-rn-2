@@ -10,3 +10,4 @@ export { default as Divider } from './Divider';
 export { default as ModalFilter } from './ModalFilter';
 export { default as FloatingButton } from './FloatingButton';
 export { default as SelectCircleTitle } from './SelectCircleTitle';
+export { default as StatsItem } from './StatsItem';

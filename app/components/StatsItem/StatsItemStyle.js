@@ -6,5 +6,4 @@ export default StyleSheet.create({
 	...ApplicationStyles.screen,
 	...ApplicationStyles.flexBox,
 	...ApplicationStyles.margins,
-	img: { width: 250, height: 250 },
 });
