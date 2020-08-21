@@ -57,16 +57,25 @@ export default function TrainersScreen(props) {
 						ListEmptyComponent={() => {
 							if (isLoading)
 								return (
-									<TextComponent color={'darkest'} size="huge" align="center" text="Cargando..." />
+									<View style={[styles.doubleVerticalMargin, styles.doubleVerticaPadding]}>
+										<TextComponent
+											color={'darkest'}
+											size="huge"
+											align="center"
+											text="Cargando..."
+										/>
+									</View>
 								);
 							else if (error)
 								return (
-									<TextComponent
-										color={'darkest'}
-										size="huge"
-										align="center"
-										text="Intenta mas tarde"
-									/>
+									<View style={[styles.doubleVerticalMargin, styles.doubleVerticaPadding]}>
+										<TextComponent
+											color={'darkest'}
+											size="huge"
+											align="center"
+											text="Intenta mas tarde"
+										/>
+									</View>
 								);
 							else return <React.Fragment />;
 						}}

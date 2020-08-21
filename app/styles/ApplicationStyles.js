@@ -164,6 +164,9 @@ const ApplicationStyles = {
 		smallPadding: {
 			padding: Metrics.smallMargin,
 		},
+		doubleVerticaPadding: {
+			paddingVertical: Metrics.doubleBaseMargin,
+		},
 	},
 	flexBox: {
 		column: {

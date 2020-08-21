@@ -10,10 +10,10 @@ export default function WelcomeScreen(props) {
 		<ImageBackground source={mainBg} style={[styles.fullWidth, styles.fullHeigth]}>
 			<View style={[styles.absolute, styles.opacityBg, { zIndex: 0 }]} />
 			<SafeAreaView style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween]}>
-				<View>
+				<View style={styles.baseVerticalMargin}>
 					<View
 						style={[
-							styles.baseVerticalMargin,
+							styles.baseTopMargin,
 							styles.basePadding,
 							styles.row,
 							styles.justifyContentSpaceBetween,
