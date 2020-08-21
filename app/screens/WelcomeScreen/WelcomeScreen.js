@@ -10,11 +10,28 @@ export default function WelcomeScreen(props) {
 		<ImageBackground source={mainBg} style={[styles.fullWidth, styles.fullHeigth]}>
 			<View style={[styles.absolute, styles.opacityBg, { zIndex: 0 }]} />
 			<View style={[styles.container, styles.flex1, styles.justifyContentSpaceBetween]}>
-				<View style={[styles.row, styles.doubleVerticalMargin, styles.basePadding]}>
-					<Image source={BankayaIcon} style={{ height: 50, width: 50 }} />
-					<View style={(styles.flex1, styles.justifyContentCenter, styles.smallLeftMargin)}>
-						<TextComponent weight="bold" size="huge" color="white" text="Bankaya Pokedex" />
-						<TextComponent color="white" text="Prueba técnica" />
+				<View>
+					<View
+						style={[
+							styles.smallVerticalMargin,
+							styles.basePadding,
+							styles.row,
+							styles.justifyContentSpaceBetween,
+						]}
+					>
+						<TouchableOpacity onPress={() => props.navigation.navigate('AboutScreen')}>
+							<TextComponent align="center" text="About" color="white" />
+						</TouchableOpacity>
+						<TouchableOpacity onPress={() => props.navigation.navigate('App')}>
+							<TextComponent align="center" text="Entrar" color="white" />
+						</TouchableOpacity>
+					</View>
+					<View style={[styles.row, styles.baseHorizontalPadding]}>
+						<Image source={BankayaIcon} style={{ height: 50, width: 50 }} />
+						<View style={(styles.flex1, styles.justifyContentCenter, styles.smallLeftMargin)}>
+							<TextComponent weight="bold" size="huge" color="white" text="Bankaya Pokedex" />
+							<TextComponent color="white" text="Prueba técnica" />
+						</View>
 					</View>
 				</View>
 				<View style={[styles.baseVerticalMargin]}>
@@ -35,12 +52,6 @@ export default function WelcomeScreen(props) {
 							borderColor="blue"
 						/>
 					</View>
-					<TouchableOpacity
-						styles={styles.doubleVerticalMargin}
-						onPress={() => props.navigation.navigate('App')}
-					>
-						<TextComponent align="center" text="Entrar" color="white" />
-					</TouchableOpacity>
 				</View>
 			</View>
 		</ImageBackground>

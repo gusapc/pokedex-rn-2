@@ -17,4 +17,7 @@ export default StyleSheet.create({
 		backgroundColor: Colors.shadow,
 		opacity: 0.75,
 	},
+	btnText: {
+		height: 100,
+	},
 });

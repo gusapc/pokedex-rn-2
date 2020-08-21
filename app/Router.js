@@ -48,8 +48,12 @@ const AuthNavigation = createStackNavigator(
 		},
 	},
 );
+const AuthModalNavigation = createStackNavigator(
+	{ AuthNavigation, AboutScreen },
+	{ mode: 'modal', headerMode: 'none' },
+);
 const AppNavigation = createSwitchNavigator(
-	{ AuthLoadingScreen, App: MainNavigation, Auth: AuthNavigation },
+	{ AuthLoadingScreen, App: MainNavigation, Auth: AuthModalNavigation },
 	{ initialRouteName: 'AuthLoadingScreen' },
 );
 export default createAppContainer(AppNavigation);
