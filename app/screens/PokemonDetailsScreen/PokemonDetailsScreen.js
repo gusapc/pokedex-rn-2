@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Image, ScrollView, ActivityIndicator } from 'react-native';
-import { StatsContainer } from 'pokedex-rn-2/app/containers';
+import { StatsContainer, AddToTeamContainer } from 'pokedex-rn-2/app/containers';
 import styles from './PokemonDetailsScreenStyle';
 import { TextComponent, HeaderNavbar, StatsItem, Divider } from 'pokedex-rn-2/app/components';
 import { Feather } from '@expo/vector-icons';
 import gball from 'pokedex-rn-2/assets/gball.png';
-import { VictoryChart, VictoryArea, VictoryPolarAxis, VictoryTheme, VictoryBar } from 'victory-native';
+import { VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryBar } from 'victory-native';
 import loading from 'pokedex-rn-2/assets/loading.jpg';
+import { Context } from 'pokedex-rn-2/app/Context';
 export default function PokemonDetailsScreen(props) {
+	const { isSignedIn } = useContext(Context);
+
 	const name = props.navigation.getParam('name', '');
 	const url = props.navigation.getParam('url', '');
 	const index = props.navigation.getParam('index', 0);
@@ -41,7 +44,7 @@ export default function PokemonDetailsScreen(props) {
 				left={
 					<Feather onPress={() => props.navigation.goBack()} name={'chevron-left'} size={35} color="white" />
 				}
-				right={<React.Fragment />}
+				right={isSignedIn ? <AddToTeamContainer name={name} url={url} index={index} /> : <React.Fragment />}
 				center={<TextComponent color={'white'} weight={'bold'} size="title" align="center" text={name} />}
 			/>
 			<ScrollView>

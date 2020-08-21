@@ -11,4 +11,6 @@ export default {
 	authenticateWithEmail: (email, pass) => firebase.auth().signInWithEmailAndPassword(email, pass),
 	createdUserByEmail: (email, pass) => firebase.auth().createUserWithEmailAndPassword(email, pass),
 	signOut: () => firebase.auth().signOut(),
+	currentUserTeam: ({ uid }) => getStore().collection('teams').doc(uid),
+	fetchCurrentUserTeam: ({ uid }) => getStore().collection('teams').doc(uid).get(),
 };

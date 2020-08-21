@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 const defaultState = {
 	isSignedIn: false,
@@ -8,7 +8,8 @@ const defaultState = {
 export const Context = createContext(defaultState);
 
 export const ContextProvider = ({ children }) => {
-	const [isSignedIn, setIsSignedIn] = useState('');
+	const [isSignedIn, setIsSignedIn] = useState(false);
+
 	return (
 		<Context.Provider
 			value={{

@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import Example from 'pokedex-rn-2/app/reducers/ExampleReducer';
 import CreateGenericReducer from 'pokedex-rn-2/app/reducers/CreateGenericReducer.js';
+import CreateGenericObjReducer from 'pokedex-rn-2/app/reducers/CreateGenericObjReducer';
 
 const rootReducer = combineReducers({
 	Example,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
 	Kalos: CreateGenericReducer('KALOS'),
 	Kalos2: CreateGenericReducer('KALOS2'),
 	Alola: CreateGenericReducer('ALOLA'),
+	Team: CreateGenericObjReducer('TEAM'),
 });
 
 export default rootReducer;
