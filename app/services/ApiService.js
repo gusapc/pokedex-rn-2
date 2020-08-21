@@ -1,10 +1,28 @@
 import axios from 'axios';
 
 export default {
-	host: 'https://example.com.mx/api',
+	pokeHost: 'https://pokeapi.co/api/v2/',
 
-	getExample(params = {}) {
-		const url = `${this.host}`;
+	getPokeList(params = {}) {
+		let { limit, offset } = params;
+		data = {
+			limit,
+			offset,
+		};
+		const queries = this.makeQueryParams(data);
+		const url = `${this.pokeHost}pokemon?${queries}`;
+		const method = 'GET';
+		return this.makeRequest({ url, method });
+	},
+
+	getPokeListByRegion(params = {}) {
+		const url = `${this.pokeHost}pokedex/${params.regionId}`;
+		const method = 'GET';
+		return this.makeRequest({ url, method });
+	},
+
+	getPokemon(name) {
+		const url = `${this.pokeHost}pokemon/${name}`;
 		const method = 'GET';
 		return this.makeRequest({ url, method });
 	},

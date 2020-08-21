@@ -1,12 +1,16 @@
-export default function normalizeByKey(all=[], key) {
-	let byKey = {}
-
-	all.forEach(item => {
-		if(!byKey[item[key]])
-			byKey[item[key]] = new Array;
-		byKey[item[key]].push(item.id);
+export default function normalizeByKey(all = [], key) {
+	let byId = {};
+	let allIds = [];
+	all.forEach((item) => {
+		if (byId[item[key]]) byId[item[key]] = item;
+		else {
+			byId[item[key]] = {
+				...item,
+				id: key,
+			};
+			allIds.push(item[key]);
+		}
 	});
-	
-	return byKey;
-}
 
+	return { byId, allIds };
+}

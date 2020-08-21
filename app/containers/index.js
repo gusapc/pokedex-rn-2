@@ -1,1 +1,1 @@
-export { default as AuthLoadingContainer } from './AuthLoadingContainer';
+export { default as PokeListContainer } from './PokeListContainer';

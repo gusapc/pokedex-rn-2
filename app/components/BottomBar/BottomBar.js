@@ -18,7 +18,7 @@ export default function BottomBar(props) {
 					onPress={() => nav.current.navigate('HomeScreen')}
 					routeName="HomeScreen"
 					isCurrentScreen={routeName === 'HomeScreen'}
-					name={'Inicio'}
+					name={'Pokedex'}
 					iconName="home"
 					color="white"
 				/>
@@ -26,7 +26,7 @@ export default function BottomBar(props) {
 					onPress={() => nav.current.navigate('TrainersScreen')}
 					routeName="TrainersScreen"
 					isCurrentScreen={routeName === 'TrainersScreen'}
-					name={'Amigos'}
+					name={'Equipos'}
 					iconName="github"
 					color="white"
 				/>

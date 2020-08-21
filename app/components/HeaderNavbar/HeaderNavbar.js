@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, Platform } from 'react-native';
+import { View, SafeAreaView, Platform, StatusBar } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './HeaderNavbarStyle';
 import { Colors } from 'pokedex-rn-2/app/styles';
@@ -58,6 +58,7 @@ export default function HeaderNavbar(props) {
 
 	return (
 		<View style={bgColorStyle}>
+			<StatusBar backgroundColor="black" barStyle={'dark-content'} />
 			<SafeAreaView>{content}</SafeAreaView>
 		</View>
 	);

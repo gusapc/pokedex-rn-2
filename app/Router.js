@@ -19,7 +19,7 @@ const AppBottomTab = createBottomTabNavigator(
 	{ HomeScreen, TrainersScreen, ProfileScreen },
 	{ tabBarComponent: BottomBar },
 );
-const MainNavigation = createStackNavigator({ AppBottomTab, PokemonDetailsScreen });
+const MainNavigation = createStackNavigator({ AppBottomTab, PokemonDetailsScreen }, { headerMode: 'none' });
 
 const AuthNavigation = createStackNavigator(
 	{

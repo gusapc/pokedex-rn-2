@@ -70,7 +70,7 @@ export default function BottomBarIcons(props) {
 						}}
 					>
 						<TextComponent
-							// size={'tiny'}
+							size={'label'}
 							lineHeight={4}
 							text={props.name}
 							color={'white'}
