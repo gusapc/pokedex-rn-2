@@ -5,6 +5,9 @@ import store from 'pokedex-rn-2/app/Store.js';
 import NavigationService from 'pokedex-rn-2/app/services/NavigationService.js';
 import 'pokedex-rn-2/config/ReactotronConfig';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
+import gball from 'pokedex-rn-2/assets/gball.png';
+import loading from 'pokedex-rn-2/assets/loading.jpg';
+
 import BankayaIcon from 'pokedex-rn-2/assets/BankayaIcon.png';
 import splash from 'pokedex-rn-2/assets/splash.png';
 import { Feather } from '@expo/vector-icons';
@@ -29,7 +32,7 @@ export default class App extends Component {
 	};
 
 	async cacheResourcesAsync() {
-		const images = [mainBg, BankayaIcon, splash];
+		const images = [mainBg, BankayaIcon, splash, loading, gball];
 		const cacheImages = images.map((image) => {
 			return Asset.fromModule(image).downloadAsync();
 		});

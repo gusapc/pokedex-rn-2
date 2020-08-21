@@ -13,11 +13,10 @@ export default function PokeListContainer(props) {
 	const list = useSelector(Selectors.selectPokeList);
 	const fetch = () => {
 		if (isLoading) return;
-		let limit = list.length + 20;
 		let offset = list.length;
 		if (offset === lastOffset) return;
 		setLastOffset(offset);
-		dispatch(fetchCreateGeneric('POKE_LIST', 'getPokeList', { limit, offset }));
+		dispatch(fetchCreateGeneric('POKE_LIST', 'getPokeList', { limit: 20, offset }));
 	};
 
 	const reload = () => {
@@ -28,6 +27,7 @@ export default function PokeListContainer(props) {
 	useEffect(() => {
 		fetch();
 	}, []);
+
 	return props.children({ isLoading, error, fetch, reload, list });
 }
 

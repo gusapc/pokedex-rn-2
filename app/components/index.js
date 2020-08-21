@@ -5,3 +5,5 @@ export { default as InputIcon } from './InputIcon';
 export { default as HeaderNavbar } from './HeaderNavbar';
 export { default as BottomBarIcons } from './BottomBarIcons';
 export { default as BottomBar } from './BottomBar';
+export { default as PokeItem } from './PokeItem';
+export { default as Divider } from './Divider';
