@@ -23,13 +23,7 @@ export default function AboutScreen(props) {
 				<TextComponent color={'black'} align={'center'} text={'Saludos equipo de Bankaya'} size={'subtitle'} />
 			</View>
 			<View style={[styles.baseVerticalMargin, styles.baseHorizontalMargin]}>
-				<TextComponent
-					color={'black'}
-					align={'justify'}
-					text={
-						'Espero que sea de su agrado este proyecto sinceramente me hizo muy feliz ya que hace aproximadamente 2 años use el api de Pokemon para la primera versión de esta App, este es un rework de ese proyecto y más que una prueba técnica fue retomar algo que quería mejorar.'
-					}
-				/>
+				<TextComponent color={'black'} align={'justify'} text={'Prueva tecnica Bankaya'} />
 			</View>
 			<View style={[styles.baseHorizontalMargin]}>
 				<TextComponent
