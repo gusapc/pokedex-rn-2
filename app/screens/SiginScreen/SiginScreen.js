@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
 	View,
 	ImageBackground,
@@ -16,12 +16,17 @@ import { TextComponent, PrimaryBtn, InputIcon, HeaderNavbar } from 'pokedex-rn-2
 import { Feather } from '@expo/vector-icons';
 import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
 import ApiService from 'pokedex-rn-2/app/services/ApiService';
+import Faker from 'faker';
+
 export default function SiginScreen(props) {
 	const [isLoading, setIsLoading] = useState(false);
-	const [email, setEmail] = useState('');
-	const [pass, setPass] = useState('');
+	const [email, setEmail] = useState(Faker.internet.email());
+	const [pass, setPass] = useState(Faker.lorem.word());
 	const inputEmail = useRef('');
 	const inputPass = useRef('');
+	useEffect(() => {
+		inputEmail.current.focus();
+	}, []);
 
 	const updateProfile = async () =>
 		await ApiService.fetchCharacter()

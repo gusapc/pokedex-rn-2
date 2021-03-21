@@ -2,7 +2,7 @@ import React /*{useEffect, useState}*/ from 'react';
 import { View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from './WelcomeScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
-import BankayaIcon from 'pokedex-rn-2/assets/BankayaIcon.png';
+import PokeIcon from 'pokedex-rn-2/assets/PokeIcon.png';
 import { TextComponent, PrimaryBtn } from 'pokedex-rn-2/app/components';
 
 export default function WelcomeScreen(props) {
@@ -27,9 +27,9 @@ export default function WelcomeScreen(props) {
 						</TouchableOpacity>
 					</View>
 					<View style={[styles.row, styles.baseHorizontalPadding]}>
-						<Image source={BankayaIcon} style={{ height: 50, width: 50 }} />
+						<Image source={PokeIcon} style={{ height: 50, width: 50 }} />
 						<View style={(styles.flex1, styles.justifyContentCenter, styles.smallLeftMargin)}>
-							<TextComponent weight="bold" size="huge" color="white" text="Bankaya Pokedex" />
+							<TextComponent weight="bold" size="huge" color="white" text="Pokedex" />
 							<TextComponent color="white" text="Prueba técnica" />
 						</View>
 					</View>

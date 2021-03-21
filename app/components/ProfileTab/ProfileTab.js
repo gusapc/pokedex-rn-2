@@ -7,7 +7,7 @@ import TextComponent from 'pokedex-rn-2/app/components/TextComponent';
 import { Feather } from '@expo/vector-icons';
 import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
 import gball from 'pokedex-rn-2/assets/gball.png';
-import loading from 'pokedex-rn-2/assets/loading.jpg';
+import loading from 'pokedex-rn-2/assets/loading.webp';
 export default function ProfileTab(props) {
 	const [email, setEmail] = useState('');
 	const [displayName, setDisplayName] = useState('');

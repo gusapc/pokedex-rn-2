@@ -6,7 +6,7 @@ import { TextComponent, HeaderNavbar, StatsItem, Divider } from 'pokedex-rn-2/ap
 import { Feather } from '@expo/vector-icons';
 import gball from 'pokedex-rn-2/assets/gball.png';
 import { VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryBar } from 'victory-native';
-import loading from 'pokedex-rn-2/assets/loading.jpg';
+import loading from 'pokedex-rn-2/assets/loading.webp';
 import { Context } from 'pokedex-rn-2/app/Context';
 export default function PokemonDetailsScreen(props) {
 	const { isSignedIn } = useContext(Context);

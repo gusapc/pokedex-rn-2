@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 import styles from './TrainerProfileScreenStyle';
 import { TextComponent, HeaderNavbar, Divider, PokeItem } from 'pokedex-rn-2/app/components';
 import gball from 'pokedex-rn-2/assets/gball.png';
-import loading from 'pokedex-rn-2/assets/loading.jpg';
+import loading from 'pokedex-rn-2/assets/loading.webp';
 
 export default function TrainerProfileScreen(props) {
 	const displayName = props.navigation.getParam('displayName', '');

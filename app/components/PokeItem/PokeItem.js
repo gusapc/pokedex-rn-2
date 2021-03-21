@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './PokeItemStyle';
 import gball from 'pokedex-rn-2/assets/gball.png';
-import loading from 'pokedex-rn-2/assets/loading.jpg';
+import loading from 'pokedex-rn-2/assets/loading.webp';
 import TextComponent from 'pokedex-rn-2/app/components/TextComponent';
 import { Feather } from '@expo/vector-icons';
 

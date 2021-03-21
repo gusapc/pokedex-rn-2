@@ -20,16 +20,16 @@ export default function AboutScreen(props) {
 				/>
 			)}
 			<View style={styles.baseTopMargin}>
-				<TextComponent color={'black'} align={'center'} text={'Saludos equipo de Bankaya'} size={'subtitle'} />
+				<TextComponent color={'black'} align={'center'} text={'Saludos'} size={'subtitle'} />
 			</View>
 			<View style={[styles.baseVerticalMargin, styles.baseHorizontalMargin]}>
-				<TextComponent color={'black'} align={'justify'} text={'Prueva tecnica Bankaya'} />
+				<TextComponent color={'black'} align={'justify'} text={`Esta es una prueba técnica que muestra el uso de React Native`} />
 			</View>
 			<View style={[styles.baseHorizontalMargin]}>
 				<TextComponent
 					color={'black'}
 					align={'justify'}
-					text={'Gracias por considerarme para la vacante, espero ser considerado.'}
+					text={'Gracias.'}
 				/>
 			</View>
 		</View>
