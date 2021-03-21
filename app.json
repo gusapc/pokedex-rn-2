@@ -1,32 +1,35 @@
 {
-	"expo": {
-		"name": "pokedex-rn-2",
-		"slug": "pokedex-rn-2",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"splash": {
-			"image": "./assets/mainBg.png",
-			"resizeMode": "cover",
-			"backgroundColor": "#000"
-		},
-		"androidStatusBar": {
-			"barStyle": "light-content",
-			"backgroundColor": "#000000"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		},
-		"android": {
-			"package": "com.gus.apc.pokedex2",
-			"versionCode": 100000
-		}
-	}
+  "expo": {
+    "name": "pokedex-rn-2",
+    "slug": "pokedex-rn-2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/mainBg.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#000"
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gus.apc.pokedex2"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.gus.apc.pokedex2",
+      "versionCode": 100000
+    }
+  }
 }
