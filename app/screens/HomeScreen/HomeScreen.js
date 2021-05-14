@@ -11,9 +11,9 @@ import {
 import { PokeListContainer, PokeonByRegionContainer } from 'pokedex-rn-2/app/containers';
 import styles from './HomeScreenStyle';
 // prettier-ignore
-const filtersName = [ 'Todos', 'Kanto','Johto', 'Hoenn','Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova2', 'Conquest', 'Kalos','Kalos2','Kalos3','Hoenn2', 'Alola',  ];
+const filtersName = ['Todos', 'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova2', 'Conquest', 'Kalos', 'Kalos2', 'Hoenn2', 'Alola',];
 // prettier-ignore
-const filters = [ 'full', 'Kanto','Johto', 'Hoenn','Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova', 'Conquest', 'Kalos','Kalos2','Kalos3','Hoenn2','Alola',  ];
+const filters = ['full', 'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Sinnoh2', 'Johto2', 'Unova', 'Unova', 'Conquest', 'Kalos', 'Kalos2', 'Hoenn2', 'Alola',];
 
 export default function HomeScreen(props) {
 	const [tempfilter, setTempFilter] = useState('full');
