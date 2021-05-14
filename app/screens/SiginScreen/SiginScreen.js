@@ -21,7 +21,7 @@ import Faker from 'faker';
 export default function SiginScreen(props) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [email, setEmail] = useState(Faker.internet.email());
-	const [pass, setPass] = useState(Faker.lorem.word());
+	const [pass, setPass] = useState(Faker.lorem.word() + ' ' + Faker.lorem.word());
 	const inputEmail = useRef('');
 	const inputPass = useRef('');
 	useEffect(() => {
@@ -35,7 +35,7 @@ export default function SiginScreen(props) {
 				const currentUser = FirebaseService.currentUser();
 				currentUser.updateProfile({ displayName: name, photoURL: image });
 			})
-			.catch((error) => {});
+			.catch((error) => { });
 
 	const sigin = async () => {
 		if (isLoading || !(email.length > 0 && pass.length > 0)) return;
@@ -50,7 +50,7 @@ export default function SiginScreen(props) {
 					[
 						{
 							text: 'OK',
-							onPress: () => {},
+							onPress: () => { },
 						},
 					],
 					{ cancelable: false },
