@@ -12,7 +12,7 @@ export default function Divider(props) {
 				styles.divider,
 				props.addVerticalMargin && styles.smallVerticalMargin,
 				props.addHorizontalMargin && styles.baseHorizontalMargin,
-				{ backgroundColor: Colors[props.color] },
+				{ backgroundColor: Colors[props.color ?? 'black'] },
 			]}
 		/>
 	);
@@ -22,10 +22,4 @@ Divider.propTypes = {
 	addVerticalMargin: PropTypes.bool,
 	addHorizontalMargin: PropTypes.bool,
 	color: PropTypes.string,
-};
-
-Divider.defaultProps = {
-	addVerticalMargin: false,
-	addHorizontalMargin: false,
-	color: 'black',
 };

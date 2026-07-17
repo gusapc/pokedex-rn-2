@@ -17,7 +17,7 @@ export function fetchFullCreateGeneric(modelName, method, params) {
 				dispatch(fetchCreateGenericSuccess(modelName, normalized));
 			})
 			.catch((error) => {
-				dispatch(fetchCreateGenericFailure());
+				dispatch(fetchCreateGenericFailure(modelName, error));
 			});
 	};
 }
@@ -31,7 +31,7 @@ export function fetchCreateGeneric(modelName, method, params) {
 				dispatch(fetchCreateGenericSuccess(modelName, normalized));
 			})
 			.catch((error) => {
-				dispatch(fetchCreateGenericFailure());
+				dispatch(fetchCreateGenericFailure(modelName, error));
 			});
 	};
 }
@@ -46,7 +46,7 @@ export function reloadCreateGeneric(modelName, method, params) {
 				dispatch(fetchCreateGenericSuccess(modelName, normalized));
 			})
 			.catch((error) => {
-				dispatch(fetchCreateGenericFailure());
+				dispatch(fetchCreateGenericFailure(modelName, error));
 			});
 	};
 }
@@ -60,7 +60,7 @@ export const fetchCreateGenericSuccess = (modelName, data) => ({
 });
 export const fetchCreateGenericFailure = (modelName, error) => ({
 	type: `FETCH_${modelName}_FAILURE`,
-	payload: error,
+	payload: { error: { status: error?.response?.status ?? error?.message ?? 'error' } },
 });
 export const resetCreateGeneric = (modelName) => ({
 	type: `RESET_${modelName}`,

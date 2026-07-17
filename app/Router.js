@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import {
 	LoginScreen,
@@ -17,43 +18,70 @@ import {
 	TeamScreen,
 } from 'pokedex-rn-2/app/screens';
 import { BottomBar, ProfileTab } from 'pokedex-rn-2/app/components';
+import { navigationRef } from 'pokedex-rn-2/app/services/NavigationService';
 
-const ProfileNavigation = createMaterialTopTabNavigator(
-	{
-		TeamScreen,
-		AboutScreen,
-	},
-	{ tabBarComponent: ProfileTab, initialRouteName: 'TeamScreen', swipeEnabled: true },
-);
+const TopTab = createMaterialTopTabNavigator();
+function ProfileNavigation() {
+	return (
+		<TopTab.Navigator initialRouteName="TeamScreen" tabBarPosition="top" tabBar={(props) => <ProfileTab {...props} />}>
+			<TopTab.Screen name="TeamScreen" component={TeamScreen} />
+			<TopTab.Screen name="AboutScreen" component={AboutScreen} />
+		</TopTab.Navigator>
+	);
+}
 
-const AppBottomTab = createBottomTabNavigator(
-	{ HomeScreen, TrainersScreen, ProfileNavigation },
-	{ tabBarComponent: BottomBar },
-);
-const MainNavigation = createStackNavigator(
-	{ AppBottomTab, PokemonDetailsScreen, TrainerProfileScreen },
-	{ headerMode: 'none' },
-);
+const BottomTab = createBottomTabNavigator();
+function AppBottomTab() {
+	return (
+		<BottomTab.Navigator screenOptions={{ headerShown: false }} tabBar={(props) => <BottomBar {...props} />}>
+			<BottomTab.Screen name="HomeScreen" component={HomeScreen} />
+			<BottomTab.Screen name="TrainersScreen" component={TrainersScreen} />
+			<BottomTab.Screen name="ProfileNavigation" component={ProfileNavigation} />
+		</BottomTab.Navigator>
+	);
+}
 
-const AuthNavigation = createStackNavigator(
-	{
-		WelcomeScreen,
-		LoginScreen,
-		SiginScreen,
-	},
-	{
-		headerMode: 'none',
-		defaultNavigationOptions: {
-			...TransitionPresets.FadeFromBottomAndroid,
-		},
-	},
-);
-const AuthModalNavigation = createStackNavigator(
-	{ AuthNavigation, AboutScreen },
-	{ mode: 'modal', headerMode: 'none' },
-);
-const AppNavigation = createSwitchNavigator(
-	{ AuthLoadingScreen, App: MainNavigation, Auth: AuthModalNavigation },
-	{ initialRouteName: 'AuthLoadingScreen' },
-);
-export default createAppContainer(AppNavigation);
+const MainStack = createNativeStackNavigator();
+function MainNavigation() {
+	return (
+		<MainStack.Navigator screenOptions={{ headerShown: false }}>
+			<MainStack.Screen name="AppBottomTab" component={AppBottomTab} />
+			<MainStack.Screen name="PokemonDetailsScreen" component={PokemonDetailsScreen} />
+			<MainStack.Screen name="TrainerProfileScreen" component={TrainerProfileScreen} />
+		</MainStack.Navigator>
+	);
+}
+
+const AuthStack = createNativeStackNavigator();
+function AuthNavigation() {
+	return (
+		<AuthStack.Navigator screenOptions={{ headerShown: false, animation: 'fade_from_bottom' }}>
+			<AuthStack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+			<AuthStack.Screen name="LoginScreen" component={LoginScreen} />
+			<AuthStack.Screen name="SiginScreen" component={SiginScreen} />
+		</AuthStack.Navigator>
+	);
+}
+
+const AuthModalStack = createNativeStackNavigator();
+function AuthModalNavigation() {
+	return (
+		<AuthModalStack.Navigator screenOptions={{ headerShown: false, presentation: 'modal' }}>
+			<AuthModalStack.Screen name="AuthNavigation" component={AuthNavigation} />
+			<AuthModalStack.Screen name="AboutScreen" component={AboutScreen} />
+		</AuthModalStack.Navigator>
+	);
+}
+
+const RootStack = createNativeStackNavigator();
+export default function AppNavigator() {
+	return (
+		<NavigationContainer ref={navigationRef}>
+			<RootStack.Navigator initialRouteName="AuthLoadingScreen" screenOptions={{ headerShown: false }}>
+				<RootStack.Screen name="AuthLoadingScreen" component={AuthLoadingScreen} />
+				<RootStack.Screen name="App" component={MainNavigation} />
+				<RootStack.Screen name="Auth" component={AuthModalNavigation} />
+			</RootStack.Navigator>
+		</NavigationContainer>
+	);
+}

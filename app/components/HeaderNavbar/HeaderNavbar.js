@@ -5,7 +5,7 @@ import styles from './HeaderNavbarStyle';
 import { Colors } from 'pokedex-rn-2/app/styles';
 
 export default function HeaderNavbar(props) {
-	let { bgColor, hideNavBarHeight, left, center, right } = props;
+	let { bgColor = 'transparent', hideNavBarHeight, left, center, right } = props;
 	let bgColorStyle = { backgroundColor: Colors[bgColor] };
 	let content = (
 		<View
@@ -74,16 +74,4 @@ HeaderNavbar.propTypes = {
 	customFlexRight: PropTypes.number,
 	bgColor: PropTypes.string,
 	hideNavBarHeight: PropTypes.bool,
-};
-
-HeaderNavbar.defaultProps = {
-	statusBar: 'dark-content',
-	left: null,
-	center: null,
-	right: null,
-	bgColor: 'transparent',
-	hideNavBarHeight: false,
-	customFlexLeft: 0,
-	customFlexCenter: 0,
-	customFlexRight: 0,
 };

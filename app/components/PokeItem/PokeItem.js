@@ -41,9 +41,3 @@ PokeItem.propTypes = {
 	name: PropTypes.string,
 	url: PropTypes.string,
 };
-
-PokeItem.defaultProps = {
-	index: '0',
-	name: 'Unknown',
-	url: '',
-};

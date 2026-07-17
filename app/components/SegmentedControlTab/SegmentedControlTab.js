@@ -53,13 +53,3 @@ SegmentedControlTab.propTypes = {
 	rightAction: PropTypes.func,
 	current: PropTypes.string,
 };
-
-SegmentedControlTab.defaultProps = {
-	leftText: '',
-	leftName: '',
-	rightText: '',
-	rightName: '',
-	leftAction: () => {},
-	rightAction: () => {},
-	current: '',
-};

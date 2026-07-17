@@ -35,12 +35,3 @@ PrimaryBtn.propTypes = {
 	bgColor: PropTypes.string,
 	borderColor: PropTypes.string,
 };
-
-PrimaryBtn.defaultProps = {
-	onPress: () => {},
-	disabled: false,
-	text: 'click me',
-	colorText: 'main',
-	bgColor: 'white',
-	borderColor: 'white',
-};

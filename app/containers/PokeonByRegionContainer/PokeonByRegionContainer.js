@@ -43,5 +43,3 @@ export default function PokeonByRegionContainer({ children, modelName }) {
 PokeonByRegionContainer.propTypes = {
 	modelName: PropTypes.string.isRequired,
 };
-
-PokeonByRegionContainer.defaultProps = {};

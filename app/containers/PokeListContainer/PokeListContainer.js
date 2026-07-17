@@ -34,7 +34,3 @@ export default function PokeListContainer(props) {
 PokeListContainer.propTypes = {
 	// data: PropTypes.array
 };
-
-PokeListContainer.defaultProps = {
-	// data: []
-};

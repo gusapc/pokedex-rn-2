@@ -16,7 +16,7 @@ export default function StatsItem(props) {
 				<TextComponent color={Colors[props.color] ?? 'black'} text={props.title} />
 			</View>
 			<View style={{ flex: 0.4 }}>
-				<TextComponent color={Colors[props.color] ?? 'black'} align="right" text={props.content} />
+				<TextComponent color={Colors[props.color] ?? 'black'} align="right" text={props.content ?? '- - -'} />
 			</View>
 		</View>
 	);
@@ -27,11 +27,4 @@ StatsItem.propTypes = {
 	title: PropTypes.string,
 	content: PropTypes.string,
 	color: PropTypes.string,
-};
-
-StatsItem.defaultProps = {
-	iconName: 'feather',
-	title: '',
-	content: '- - -',
-	color: 'black',
 };

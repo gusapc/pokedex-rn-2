@@ -19,8 +19,3 @@ export default function HelloWorld (props) {
 HelloWorld.propTypes = {
 	// data: PropTypes.array
 }
-
-HelloWorld.defaultProps = {
-	// data: []
-}
-

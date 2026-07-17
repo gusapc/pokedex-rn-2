@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './TrainersScreenStyle';
 import { View, FlatList, RefreshControl, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { HeaderNavbar, TextComponent, Divider } from 'pokedex-rn-2/app/components/';
-import { FireListContainer } from 'pokedex-rn-2/app/containers';
+import { TeamListContainer } from 'pokedex-rn-2/app/containers';
 import { Metrics } from 'pokedex-rn-2/app/styles';
 import gball from 'pokedex-rn-2/assets/gball.png';
 
@@ -47,7 +47,7 @@ export default function TrainersScreen(props) {
 				right={<React.Fragment />}
 				center={<TextComponent color={'black'} weight={'bold'} size="huge" align="center" text="Equipos" />}
 			/>
-			<FireListContainer fireMethod="fetchTeams">
+			<TeamListContainer>
 				{({ isLoading, error, fetch, reload, list }) => (
 					<FlatList
 						data={list}
@@ -83,7 +83,7 @@ export default function TrainersScreen(props) {
 						ItemSeparatorComponent={() => <Divider addHorizontalMargin />}
 					/>
 				)}
-			</FireListContainer>
+			</TeamListContainer>
 		</View>
 	);
 }

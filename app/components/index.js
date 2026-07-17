@@ -13,3 +13,4 @@ export { default as SelectCircleTitle } from './SelectCircleTitle';
 export { default as StatsItem } from './StatsItem';
 export { default as ProfileTab } from './ProfileTab';
 export { default as SegmentedControlTab } from './SegmentedControlTab';
+export { default as ActionSheet } from './ActionSheet';

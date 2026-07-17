@@ -6,7 +6,7 @@ import styles from './FloatingButtonStyle';
 import { Feather } from '@expo/vector-icons';
 
 export default function FloatingButton(props) {
-	const backgroundColor = { backgroundColor: Colors[props.bgColor] };
+	const backgroundColor = { backgroundColor: Colors[props.bgColor ?? 'gray'] };
 	return (
 		<TouchableOpacity
 			onPress={props.onPress}
@@ -14,7 +14,7 @@ export default function FloatingButton(props) {
 			activeOpacity={0.8}
 			disabled={props.disabled}
 		>
-			<Feather name={props.iconName} size={35} color={Colors[props.iconColor]} onPress={props.onPress} />
+			<Feather name={props.iconName ?? 'plus'} size={35} color={Colors[props.iconColor ?? 'white']} onPress={props.onPress} />
 		</TouchableOpacity>
 	);
 }
@@ -24,10 +24,4 @@ FloatingButton.propTypes = {
 	iconColor: PropTypes.string,
 	iconName: PropTypes.string,
 	disabled: PropTypes.bool,
-};
-FloatingButton.defaultProps = {
-	bgColor: 'gray',
-	iconColor: 'white',
-	iconName: 'plus',
-	disabled: false,
 };

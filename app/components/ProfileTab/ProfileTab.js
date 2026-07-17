@@ -5,7 +5,7 @@ import styles from './ProfileTabStyle';
 import HeaderNavbar from 'pokedex-rn-2/app/components/HeaderNavbar';
 import TextComponent from 'pokedex-rn-2/app/components/TextComponent';
 import { Feather } from '@expo/vector-icons';
-import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
+import SessionService from 'pokedex-rn-2/app/services/SessionService';
 import gball from 'pokedex-rn-2/assets/gball.png';
 import loading from 'pokedex-rn-2/assets/loading.webp';
 export default function ProfileTab(props) {
@@ -13,15 +13,16 @@ export default function ProfileTab(props) {
 	const [displayName, setDisplayName] = useState('');
 	const [photoURL, setPhotoURL] = useState('');
 
-	const signOut = async () => await FirebaseService.signOut();
+	const signOut = async () => await SessionService.signOut();
 
 	useEffect(() => {
-		let currentUser = FirebaseService.currentUser();
+		let currentUser = SessionService.currentUser();
+		if (!currentUser) return;
 		setEmail(currentUser.email);
 		setDisplayName(currentUser.displayName);
 		setPhotoURL(currentUser.photoURL);
 	}, []);
-	let routeName = props.navigation.state.routes[props.navigation.state.index].routeName;
+	let routeName = props.state.routes[props.state.index].name;
 	return (
 		<View style={styles.container}>
 			<HeaderNavbar
@@ -53,9 +54,9 @@ export default function ProfileTab(props) {
 			<View style={[styles.row, styles.flex1, styles.justifyContentCenter]}>
 				<Image
 					style={styles.img}
-					source={displayName ? { uri: photoURL } : gball}
+					source={photoURL ? { uri: photoURL } : gball}
 					onError={() => {
-						setPhotoURL(gball);
+						setPhotoURL('');
 					}}
 					defaultSource={loading}
 				/>

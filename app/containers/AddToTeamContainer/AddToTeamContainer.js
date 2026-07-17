@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Alert, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
-import ActionSheet from 'react-native-actionsheet';
+import SessionService from 'pokedex-rn-2/app/services/SessionService';
+import TeamsService from 'pokedex-rn-2/app/services/TeamsService';
+import ActionSheet from 'pokedex-rn-2/app/components/ActionSheet';
 import useGenericObj from 'pokedex-rn-2/app/hooks/useGenericObj';
 
 export default function AddToTeamContainer(props) {
@@ -15,11 +16,10 @@ export default function AddToTeamContainer(props) {
 
 	const setNewPokemon = async (index) => {
 		let newTeam = infoTeam.data.team ? infoTeam.data.team.map((i) => i) : [];
-		newTeam[index] = { ...props };
-		let { uid, displayName, photoURL } = FirebaseService.currentUser();
+		newTeam[index] = { name: props.name, url: props.url, index: props.index };
+		let { uid, displayName, photoURL } = SessionService.currentUser();
 
-		await FirebaseService.currentUserTeam({ uid })
-			.set({ team: newTeam, displayName, photoURL })
+		await TeamsService.saveCurrentUserTeam({ uid, team: newTeam, displayName, photoURL })
 			.then((r) => {
 				infoTeamLoader.fetch({ uid });
 				Alert.alert('Exlente', `Ahora tiene un ${props.name}`, [{ text: 'OK', onPress: () => {} }], {

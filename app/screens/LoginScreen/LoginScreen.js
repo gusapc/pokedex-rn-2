@@ -14,7 +14,7 @@ import styles from './LoginScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
 import { TextComponent, PrimaryBtn, InputIcon, HeaderNavbar } from 'pokedex-rn-2/app/components';
 import { Feather } from '@expo/vector-icons';
-import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
+import SessionService from 'pokedex-rn-2/app/services/SessionService';
 
 export default function LoginScreen(props) {
 	const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +26,7 @@ export default function LoginScreen(props) {
 	const login = async () => {
 		if (isLoading || !(email.length > 0 && pass.length > 0)) return;
 		setIsLoading(true);
-		FirebaseService.authenticateWithEmail(email, pass)
+		SessionService.authenticateWithEmail(email, pass)
 			.then((r) => {})
 			.catch((error) => {
 				setIsLoading(false);

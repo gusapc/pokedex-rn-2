@@ -5,7 +5,7 @@ export default {
 
 	getPokeList(params = {}) {
 		let { limit, offset } = params;
-		data = {
+		const data = {
 			limit,
 			offset,
 		};

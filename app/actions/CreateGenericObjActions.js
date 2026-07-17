@@ -1,12 +1,12 @@
-import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
+import TeamsService from 'pokedex-rn-2/app/services/TeamsService';
 
-export function fetchCreateGenericObj(modelName, fireMethod, params) {
+export function fetchCreateGenericObj(modelName, serviceMethod, params) {
 	return async (dispatch) => {
 		dispatch(fetchCreateGenericObjBegin(modelName));
-		return FirebaseService[fireMethod](params).then(
+		return TeamsService[serviceMethod](params).then(
 			(result) => {
-				dispatch(fetchCreateGenericObjSuccess(modelName, result.data() ?? {}));
-				return result.data();
+				dispatch(fetchCreateGenericObjSuccess(modelName, result ?? {}));
+				return result;
 			},
 			(error) => {
 				dispatch(fetchCreateGenericObjFailure(modelName, error));

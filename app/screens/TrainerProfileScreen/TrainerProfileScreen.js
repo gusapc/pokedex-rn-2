@@ -7,9 +7,9 @@ import gball from 'pokedex-rn-2/assets/gball.png';
 import loading from 'pokedex-rn-2/assets/loading.webp';
 
 export default function TrainerProfileScreen(props) {
-	const displayName = props.navigation.getParam('displayName', '');
-	const photoURL = props.navigation.getParam('photoURL', '');
-	const team = props.navigation.getParam('team', '');
+	const displayName = props.route.params?.displayName ?? '';
+	const photoURL = props.route.params?.photoURL ?? '';
+	const team = props.route.params?.team ?? [];
 
 	const [imgSrc, setImgSrc] = useState(
 		photoURL

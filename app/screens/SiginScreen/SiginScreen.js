@@ -14,7 +14,7 @@ import styles from './SiginScreenStyle';
 import mainBg from 'pokedex-rn-2/assets/mainBg.png';
 import { TextComponent, PrimaryBtn, InputIcon, HeaderNavbar } from 'pokedex-rn-2/app/components';
 import { Feather } from '@expo/vector-icons';
-import FirebaseService from 'pokedex-rn-2/app/services/FirebaseService';
+import SessionService from 'pokedex-rn-2/app/services/SessionService';
 import ApiService from 'pokedex-rn-2/app/services/ApiService';
 import Faker from 'faker';
 
@@ -32,15 +32,14 @@ export default function SiginScreen(props) {
 		await ApiService.fetchCharacter()
 			.then((response) => {
 				const { name, image } = response.data;
-				const currentUser = FirebaseService.currentUser();
-				currentUser.updateProfile({ displayName: name, photoURL: image });
+				return SessionService.updateProfile({ displayName: name, photoURL: image });
 			})
 			.catch((error) => { });
 
 	const sigin = async () => {
 		if (isLoading || !(email.length > 0 && pass.length > 0)) return;
 		setIsLoading(true);
-		FirebaseService.createdUserByEmail(email, pass)
+		SessionService.createdUserByEmail(email, pass)
 			.then((r) => updateProfile())
 			.catch((error) => {
 				setIsLoading(false);

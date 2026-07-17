@@ -1,58 +1,70 @@
-import React, { useEffect } from 'react'; // useState // useEffect,
-import { Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Modal, ScrollView, TouchableWithoutFeedback, View } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './ModalFilterStyle';
-import Modal, { SlideAnimation, ModalTitle, ModalContent, ModalFooter } from 'react-native-modals';
 import PrimaryBtn from 'pokedex-rn-2/app/components/PrimaryBtn';
+import TextComponent from 'pokedex-rn-2/app/components/TextComponent';
 import SelectCircleTitle from 'pokedex-rn-2/app/components/SelectCircleTitle';
+import Divider from 'pokedex-rn-2/app/components/Divider';
 
-export default function ModalFilter(props) {
+export default function ModalFilter({
+	isVisible = false,
+	filtersName = [],
+	filters = [],
+	tempfilter = '',
+	selectCircleTitleOnPress = () => {},
+	onTouchOutside = () => {},
+	onPressCancel = () => {},
+	onPressSuccess = () => {},
+}) {
 	useEffect(() => {
-		props.onPressSuccess();
-	}, [props.tempfilter]);
+		onPressSuccess();
+	}, [tempfilter]);
 	return (
-		<View style={styles.container}>
-			<Modal.BottomModal
-				modalStyle={{ zIndex: 300 }}
-				visible={props.isVisible}
-				useNativeDriver={false}
-				onTouchOutside={props.onTouchOutside}
-			>
-				<ModalTitle title={'Filtros'} />
-				<ModalContent>
-					<View style={[styles.baseHorizontalMargin, styles.baseVerticalMargin]}>
-						{props.filtersName.map((item, index) => (
-							<React.Fragment key={index}>
-								<SelectCircleTitle
-									onPress={() => {
-										props.selectCircleTitleOnPress(index);
-									}}
-									name={
-										props.filters[index] === props.tempfilter
-											? 'check-circle-outline'
-											: 'checkbox-blank-circle-outline'
-									}
-									color={'highlight'}
-									text={item}
-								/>
-							</React.Fragment>
-						))}
-					</View>
-				</ModalContent>
-				<ModalFooter>
-					<View style={[styles.flex1, styles.row, styles.justifyContentSpaceEvenly]}>
-						<View style={[styles.baseHorizontalMargin, styles.baseVerticalMargin, { width: '40%' }]}>
-							<PrimaryBtn
-								colorText="white"
-								bgColor={'redPokeball'}
-								text={'Cancelar'}
-								onPress={props.onPressCancel}
-							/>
+		<Modal visible={isVisible} transparent animationType="slide" onRequestClose={onTouchOutside}>
+			<TouchableWithoutFeedback onPress={onTouchOutside}>
+				<View style={[styles.overlay, styles.justifyContentFlexEnd]}>
+					<TouchableWithoutFeedback>
+						<View style={styles.sheet}>
+							<View style={[styles.smallVerticalMargin]}>
+								<TextComponent text={'Filtros'} size="subtitle" color="darkest" align="center" />
+							</View>
+							<Divider color="gray" />
+							<ScrollView style={styles.sheetContent}>
+								<View style={[styles.baseHorizontalMargin, styles.baseVerticalMargin]}>
+									{filtersName.map((item, index) => (
+										<React.Fragment key={index}>
+											<SelectCircleTitle
+												onPress={() => {
+													selectCircleTitleOnPress(index);
+												}}
+												name={
+													filters[index] === tempfilter
+														? 'check-circle-outline'
+														: 'checkbox-blank-circle-outline'
+												}
+												color={'highlight'}
+												text={item}
+											/>
+										</React.Fragment>
+									))}
+								</View>
+							</ScrollView>
+							<View style={[styles.flex1, styles.row, styles.justifyContentSpaceEvenly]}>
+								<View style={[styles.baseHorizontalMargin, styles.baseVerticalMargin, { width: '40%' }]}>
+									<PrimaryBtn
+										colorText="white"
+										bgColor={'redPokeball'}
+										text={'Cancelar'}
+										onPress={onPressCancel}
+									/>
+								</View>
+							</View>
 						</View>
-					</View>
-				</ModalFooter>
-			</Modal.BottomModal>
-		</View>
+					</TouchableWithoutFeedback>
+				</View>
+			</TouchableWithoutFeedback>
+		</Modal>
 	);
 }
 
@@ -65,15 +77,4 @@ ModalFilter.propTypes = {
 	onTouchOutside: PropTypes.func,
 	onPressCancel: PropTypes.func,
 	onPressSuccess: PropTypes.func,
-};
-
-ModalFilter.defaultProps = {
-	isVisible: false,
-	filtersName: [],
-	filters: [],
-	tempfilter: '',
-	selectCircleTitleOnPress: () => {},
-	onTouchOutside: () => {},
-	onPressCancel: () => {},
-	onPressSuccess: () => {},
 };

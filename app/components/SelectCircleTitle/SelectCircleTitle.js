@@ -20,7 +20,3 @@ export default function SelectCircleTitle(props) {
 SelectCircleTitle.propTypes = {
 	// data: PropTypes.array
 };
-
-SelectCircleTitle.defaultProps = {
-	// data: []
-};

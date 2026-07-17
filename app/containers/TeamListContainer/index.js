@@ -1,3 +1,3 @@
-import FireListContainer from  './FireListContainer';
+import TeamListContainer from './TeamListContainer';
 
-export default FireListContainer;
+export default TeamListContainer;

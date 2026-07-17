@@ -23,11 +23,3 @@ TextComponent.propTypes = {
 	align: PropTypes.string,
 	size: PropTypes.string,
 };
-
-TextComponent.defaultProps = {
-	text: '',
-	color: 'dark',
-	weight: 'regular',
-	align: 'left',
-	size: 'body',
-};

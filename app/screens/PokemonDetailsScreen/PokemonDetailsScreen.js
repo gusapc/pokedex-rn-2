@@ -11,9 +11,9 @@ import { Context } from 'pokedex-rn-2/app/Context';
 export default function PokemonDetailsScreen(props) {
 	const { isSignedIn } = useContext(Context);
 
-	const name = props.navigation.getParam('name', '');
-	const url = props.navigation.getParam('url', '');
-	const index = props.navigation.getParam('index', 0);
+	const name = props.route.params?.name ?? '';
+	const url = props.route.params?.url ?? '';
+	const index = props.route.params?.index ?? 0;
 	const [imgSrc, setImgSrc] = useState(
 		url
 			? {
